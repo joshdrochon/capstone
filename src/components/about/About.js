@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import AboutView1 from './AboutView1';
+import AboutView2 from './AboutView2';
 import Header from './Header';
-import Carousel from './Carousel';
 
 class About extends Component{
   componentDidMount(){
@@ -12,7 +12,7 @@ class About extends Component{
       <Fragment>
         <Header/>
         <AboutView1/>
-        <Carousel/>
+        <AboutView2/>
       </Fragment>
     );
   }

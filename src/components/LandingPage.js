@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import HomeView1 from './home/HomeView1';
+// import HomeView2 from './home/HomeView2';
 
-class LandingPage extends Component {
-
+class LandingPage extends Component{
   componentDidMount(){
     window.scrollTo(0, 0)
   }

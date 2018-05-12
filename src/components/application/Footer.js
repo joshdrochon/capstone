@@ -6,8 +6,7 @@ const styles = {
   footer: {
     display: 'flex',
     height: '90px',
-    justifyContent: 'space-between',
-    borderTop: '1px solid darkgray'
+    justifyContent: 'space-between'
   },
   icon: {
     width: '36px',

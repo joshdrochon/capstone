@@ -1,5 +1,6 @@
 import React from 'react';
-import burningIncense from '../../assets/images/about/incense.jpg';
+import paintStroke from './../../assets/images/blog/paint-stroke.png';
+import treeClipArt from './../../assets/images/blog/tree-clip-art.png';
 
 const styles = {
   flexParent: {
@@ -15,13 +16,14 @@ const styles = {
     position: 'relative'
   },
   flexChild: {
-    width: '500px',
+    width: '45%',
+    minWidth: '550px',
     height: 'max-content',
     textAlign: 'center',
     margin: '20px',
-    padding: '10px',
     boxSizing: 'border-box',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    padding: '20px'
   },
   hr: {
     width: '80%',
@@ -31,32 +33,31 @@ const styles = {
   }
 }
 
-const AboutView1 = () => {
+const BlogView1 = () => {
   return(
     <div style={styles.flexParent}>
       <style>{`
-        #about-me{
-          font-size: 40px;
-          font-weight: lighter;
-        }
-        #burning-incense{
+        #paint{
+          width: 400px;
           height: auto;
-          width: 100%;
+          vertical-align: middle;
+        }
+        #tree{
+          width: 300px;
+          height: auto;
           vertical-align: middle;
         }
       `}
       </style>
       <div style={styles.flexChild}>
-        <span id='about-me'>GET TO KNOW ME</span>
-        <h3>Explore. Live. Breathe</h3><br/><hr/><br/>
-        <h3><em>“Love and compassion are necessities, not luxuries. Without them, humanity cannot survive.” ― Dalai Lama</em></h3>
+        <img id='paint' src={paintStroke}/>
       </div>
       <div style={styles.flexChild}>
-        <img id='burning-incense' src={burningIncense}/>
+        <img id='tree' src={treeClipArt}/>
       </div>
       <hr style={styles.hr}/>
     </div>
   );
 }
 
-export default AboutView1;
+export default BlogView1;

@@ -1,5 +1,5 @@
 import React from 'react';
-import rocks from './../assets/images/rocks.jpg';
+import rocks from './../assets/images/banners/banner_splash.jpg';
 import { Link } from 'react-router-dom';
 
 const styles = {
@@ -35,7 +35,6 @@ const Header = () => {
       <style>{`
           #tagline:hover{
             text-shadow: 0px 0px 10px;
-
             cursor: pointer;
           }
           #tagline a{

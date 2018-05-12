@@ -1,5 +1,5 @@
 import React from 'react';
-import yogaForest from './../../assets/images/yoga-forest.png';
+import yogaForest from './../../assets/images/banners/banner_about.png';
 
 const styles = {
   header: {

@@ -1,48 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import $ from 'jquery';
+import compass from './../../assets/images/splash/compass.png';
 
 const Navbar = () => {
   return(
-    <div>
+    <div id='navbar'>
       <style>{`
           #navbar{
             display: grid;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
             width: 100%;
-            height: 70px;
+            height: 10vh;
             background: whitesmoke;
             text-align: center;
             position: fixed;
+            z-index: 100;
+            transition: top 0.2s ease-in-out;
             top: 0;
             left: 0;
-            z-index: 100;
           }
-          #navbar div{
-            width: 100%;
-            height: 70px;
-            margin: auto;
-          }
-          #navbar a{
+          #navbar a:not(#logo){
             color: #101010;
             text-decoration: none;
-            font-size: 30px;
-            line-height: 70px;
+            line-height: 10vh;
+            font-size: 150%;
           }
-          #navbar a:hover{
-            padding:15px;
+          #logo{
+            line-height: 10vh;
+            font-size: 170%;
+            text-decoration: none;
+            color: #101010;
+          }
+          #navbar a:hover:not(#logo){
             text-shadow: 0px 0px 25px dodgerblue;
+          }
+          #compass{
+            margin-top: auto;
+            vertical-align: middle;
+            width: 60px;
+            height: 60px;
           }
         `}
       </style>
-      <div id='navbar'>
-        <p/>
-        <div><Link to='/'>Home</Link></div>
-        <div><Link to='/about'>About</Link></div>
-        <div><Link to='/services'>Services</Link></div>
-        <div><Link to='/blog'>Blog</Link></div>
-        <div><Link to='/contact'>Contact</Link></div>
-        <p/>
-      </div>
+      <div><Link to='/about'>About</Link></div>
+      <div><Link to='/services'>Services</Link></div>
+      <div><Link id='logo' to='/'>NATALI'S <img id='compass' src={compass}/> JOURNEY</Link></div>
+      <div><Link to='/blog'>Blog</Link></div>
+      <div><Link to='/contact'>Contact</Link></div>
     </div>
   );
 }

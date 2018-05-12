@@ -1,11 +1,12 @@
 import React from 'react';
-import burningIncense from '../../assets/images/about/incense.jpg';
+import { allText } from './../../text-blocks';
+import zen from './../../assets/images/about/zen.jpg';
 
 const styles = {
   flexParent: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap-reverse',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     height: 'max-content',
@@ -30,33 +31,32 @@ const styles = {
     bottom: '0'
   }
 }
-
-const AboutView1 = () => {
+const AboutView2 = () => {
   return(
     <div style={styles.flexParent}>
       <style>{`
-        #about-me{
-          font-size: 40px;
-          font-weight: lighter;
-        }
-        #burning-incense{
-          height: auto;
-          width: 100%;
-          vertical-align: middle;
-        }
+          #envelope h3{
+            font-weight: lighter;
+            font-family: 'Book Antiqua';
+            letter-spacing: 2px;
+          }
       `}
       </style>
+      <article style={styles.flexChild}>
+        <span id='envelope'>
+          <h3>{allText.about.p1}</h3><br/>
+          <h3>{allText.about.p2}</h3><br/>
+          <h3>{allText.about.p3}</h3><br/>
+        </span>
+      </article>
       <div style={styles.flexChild}>
-        <span id='about-me'>GET TO KNOW ME</span>
-        <h3>Explore. Live. Breathe</h3><br/><hr/><br/>
-        <h3><em>“Love and compassion are necessities, not luxuries. Without them, humanity cannot survive.” ― Dalai Lama</em></h3>
-      </div>
-      <div style={styles.flexChild}>
-        <img id='burning-incense' src={burningIncense}/>
+        <img src={zen}/>
+        <h2>"The more you are motivated by love, the more fearless and free your action will be."</h2><br/>
+        <h1><em> ― Dalai Lama</em></h1>
       </div>
       <hr style={styles.hr}/>
     </div>
   );
 }
 
-export default AboutView1;
+export default AboutView2;
