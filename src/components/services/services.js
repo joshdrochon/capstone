@@ -1,8 +1,11 @@
 import React from 'react';
+import Header from './Header';
 
 const Services = () => {
   return(
-    <p>Services work</p>
+    <div>
+      <Header/>
+    </div>
   );
 }
 

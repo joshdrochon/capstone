@@ -12,12 +12,16 @@ const styles = {
   },
   logoContainer: {
     position: 'absolute',
+    width: '70vw',
+    height: 'max-content',
+    fontSize: 'inherit',
+    border: '1px solid black',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
   },
   logo: {
-    fontSize: '75px',
+    fontSize: 'inherit',
     color: 'white',
     fontWeight: 'lighter'
   },
