@@ -6,29 +6,20 @@ const styles = {
   header: {
     width: '100vw',
     height: '90vh',
-    textAlign: 'center',
     backgroundImage: `url(${rocks})`,
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    textAlign: 'center'
   },
-  logoContainer: {
+  tagline: {
     position: 'absolute',
-    width: '70vw',
-    height: 'max-content',
-    fontSize: 'inherit',
-    border: '1px solid black',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-  },
-  logo: {
-    fontSize: 'inherit',
-    color: 'white',
-    fontWeight: 'lighter'
-  },
-  tagline: {
-    fontSize: '40px',
+    width: 'max-content',
     color: 'white',
     fontWeight: 'lighter',
+    fontSize: 'calc(30px + 2.5vw)',
+    textDecoration: 'none',
     transition: 'text-shadow 0.5s ease-in-out'
   }
 }
@@ -41,15 +32,8 @@ const Header = () => {
             text-shadow: 0px 0px 10px;
             cursor: pointer;
           }
-          #tagline a{
-            text-decoration: none;
-            color: inherit;
-          }
       `}</style>
-      <span style={styles.logoContainer}>
-        <span id='logo' style={styles.logo}>YOGA WITH NATALI</span><br/>
-        <span id='tagline' style={styles.tagline}><Link to='/services'>START YOUR JOURNEY</Link></span>
-      </span>
+    <Link id='tagline' style={styles.tagline} to='/services'><p>START YOUR JOURNEY</p></Link>
     </div>
   );
 }

@@ -4,6 +4,18 @@ import $ from 'jquery';
 import compass from './../../assets/images/splash/compass.png';
 import menuIcon from './menu-icon.svg';
 
+const fontResize = () => {
+  var perc = parseInt($(window).width())/60;
+  $('#navbar').css('font-size',perc);
+}
+$(() => {
+    fontResize();
+});
+$(window).resize(() => {
+    fontResize();
+});
+
+
 $(document).ready(function(){
     $('#menu').click(function(){
         $('#options').slideToggle();
@@ -99,8 +111,8 @@ const Navbar = () => {
         .nav div:hover:not(#target){
           box-shadow: inset 6px 0 0 0 red;
         }
-        #menu{
-          z-index: 2;
+        #target{
+          font-size: 220%;
         }
         #menu-icon{
           width: 50px;

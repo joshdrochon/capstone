@@ -14,7 +14,7 @@ const styles = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    fontSize: '75px',
+    fontSize: 'calc(30px + 2.5vw)',
     color: 'white',
     fontWeight: 'lighter',
     transition: 'text-shadow 0.5s ease-in-out'
