@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const styles = {
   header: {
     width: '100vw',
-    height: '90vh',
+    height: '85vh',
     backgroundImage: `url(${rocks})`,
     backgroundSize: 'cover',
     textAlign: 'center'
@@ -32,8 +32,14 @@ const Header = () => {
             text-shadow: 0px 0px 10px;
             cursor: pointer;
           }
-      `}</style>
-    <Link id='tagline' style={styles.tagline} to='/services'><p>START YOUR JOURNEY</p></Link>
+          @media (max-width: 500px){
+            #tagline{
+              font-size: 36px !important;
+            }
+          }
+      `}
+      </style>
+      <Link id='tagline' style={styles.tagline} to='/services'><text>YOUR JOURNEY AWAITS</text></Link>
     </div>
   );
 }

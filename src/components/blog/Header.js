@@ -4,7 +4,7 @@ import rocks from './../../assets/images/banners/banner_blog.jpg';
 const styles = {
   header: {
     width: '100vw',
-    height: '90vh',
+    height: '100vh',
     textAlign: 'center',
     backgroundImage: `url(${rocks})`,
     backgroundSize: 'cover'

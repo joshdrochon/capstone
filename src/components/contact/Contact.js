@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import Form from './Form';
 import Header from './Header';
+import ContactView1 from './ContactView1';
 
 
-class ContactPage extends React.Component{
+class ContactPage extends Component{
   componentDidMount(){
     window.scrollTo(0,0)
   }
@@ -11,7 +11,7 @@ class ContactPage extends React.Component{
     return(
       <Fragment>
         <Header/>
-        <Form/>
+        <ContactView1/>
       </Fragment>
     );
   }

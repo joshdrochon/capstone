@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import reachOut from './../../assets/images/banners/banner_contact.jpg';
 
 const styles = {
   header: {
     width: '100vw',
-    height: '90vh',
+    height: '100vh',
     textAlign: 'center',
     backgroundImage: `url(${reachOut})`,
     backgroundSize: 'cover'
@@ -21,25 +21,23 @@ const styles = {
   }
 }
 
-class Header extends Component{
-  render(){
-    return(
-      <div style={styles.header}>
-        <style>{`
-          #contact-pointer:hover{
-            text-shadow: 0px 0px 10px;
-            cursor: pointer;
-          }
-          #contact-pointer a{
-            text-decoration: none;
-            color: inherit;
-          }
-        `}
-        </style>
-        <span style={styles.pointer} id='contact-pointer' style={styles.pointer}><a href='#contact-form'>Contact US</a></span>
-      </div>
-    );
-  }
+const Header = () => {
+  return(
+    <div style={styles.header}>
+      <style>{`
+        #contact-pointer:hover{
+          text-shadow: 0px 0px 10px;
+          cursor: pointer;
+        }
+        #contact-pointer a{
+          text-decoration: none;
+          color: inherit;
+        }
+      `}
+      </style>
+      <span style={styles.pointer} id='contact-pointer' style={styles.pointer}><a href='#contact-form'>CONTACT US</a></span>
+    </div>
+  );
 }
 
 export default Header;

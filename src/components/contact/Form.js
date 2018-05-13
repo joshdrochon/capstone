@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { expand } from './../../helpers';
 
 class Form extends Component {
   render(){
@@ -8,33 +7,30 @@ class Form extends Component {
         <style>{`
           #contact-form{
             padding: 25px;
-            background-color: white;
+            border: 1px solid black;
             margin: auto;
             margin-top: 50px;
-            width: 40vw;
+            width: 400px;
+            height: 400px;
             overflow-y: hidden;
-          }
-          #contact-form:hover{
-            cursor: pointer;
-          }
-          .expand{
-            transform: scale(1.15);
-            z-index: 100;
-          }
-          .focus{
-            body{
-              background-color: darkgray;
-            }
+            margin-top: auto;
+            margin-bottom: auto;
           }
           #contact-form *{
-            font-family: 'Indie Flower', cursive;
             font-weight: lighter;
             letter-spacing: 1px;
           }
           #contact-form input{
-            border: none;
+            display: block;
+            width: 100%;
             border: 1px solid black;
-            background: white;
+            background: snow;
+            border-radius: 10px 8px 25px 10px;
+            font-size: 32px;
+            color: #202020;
+          }
+          #contact-form input:focus{
+            outline: none;
           }
           #submit-btn{
             font-size: 50px;
@@ -64,29 +60,15 @@ class Form extends Component {
           #comment-field:focus{
             outline: none;
           }
-          .input-label{
-            display: block;
-            margin-bottom: 35px;
-          }
-          .input-label label{
-            font-size: 32px;
-            color: #202020;
-          }
-          .input-label input{
-            border-radius: 10px;
-            font-size: 32px;
-            color: #202020;
-            width:72%;
-          }
           .input-label input:focus{
             outline: none;
           }
         `}
         </style>
-        <form onClick={expand} id='contact-form'>
-          <span className='input-label'><label>Firstname: </label><input maxLength='17' type='text' required/></span>
-          <span className='input-label'><label>Lastname: </label><input maxLength='17' type='text' required /></span>
-          <span className='input-label'><label>Email: </label><input maxLength='22' type='email' required /></span>
+        <form id='contact-form'>
+          <h2>Firstname: </h2><input maxLength='17' type='text' required/>
+          <h2>Lastname: </h2><input maxLength='17' type='text' required />
+          <h2>Email: </h2><input maxLength='22' type='email' required />
           <h1 id='comment-tag'>Drop a comment</h1><textarea id='comment-field'></textarea>
           <button id='submit-btn' type='submit'>Get in touch!</button>
         </form>

@@ -1,6 +1,7 @@
 import React from 'react';
 import insta from './../../assets/images/social/fb-icon.svg';
 import fb from './../../assets/images/social/insta-icon.svg';
+import { fbLink } from './../../text-blocks.js';
 
 const styles = {
   footer: {
@@ -37,7 +38,7 @@ const Footer = () => {
     <div id='footer' style={styles.footer}>
       <span style={styles.copyright}>YOGA WITH NATALI &#x24B8; 2018 <hr style={styles.hr}/>BUILT WITH LOVE BY JOSH ROCHON</span>
       <span style={styles.social}>
-        <a target='_blank' href='https://facebook.com/natalicoronel'><img style={styles.icon} src={fb}/></a>
+        <a target='_blank' href={fbLink}><img style={styles.icon} src={fb}/></a>
         <a target='_blank' href='https://instagram.com'><img style={styles.icon} src={insta}/></a>
       </span>
     </div>

@@ -36,7 +36,7 @@ const Navbar = () => {
           width: 100%;
           height: 80px;
           min-height: 70px;
-          background: whitesmoke;
+          background: white;
           text-align: center;
           position: fixed;
           z-index: 100;
@@ -109,7 +109,7 @@ const Navbar = () => {
           color: inherit;
         }
         .nav div:hover:not(#target){
-          box-shadow: inset 6px 0 0 0 red;
+          box-shadow: inset 6px 0 0 0 #6f8a6d;
         }
         #target{
           font-size: 220%;
@@ -122,11 +122,11 @@ const Navbar = () => {
       `}
       </style>
       <div id='navbar'>
-        <div><Link to='/about'>About</Link></div>
-        <div><Link to='/services'>Services</Link></div>
+        <div><Link to='/about'>ABOUT</Link></div>
+        <div><Link to='/services'>SERVICES</Link></div>
         <div><Link id='logo' to='/'>NATALI'S <img id='compass' src={compass}/> JOURNEY</Link></div>
-        <div><Link to='/blog'>Blog</Link></div>
-        <div><Link to='/contact'>Contact</Link></div>
+        <div><Link to='/blog'>BLOG</Link></div>
+        <div><Link to='/contact'>CONTACT</Link></div>
       </div>
 
       <div className='nav' id='menu'>

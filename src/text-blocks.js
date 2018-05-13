@@ -5,3 +5,5 @@ export const allText = {
     p3: 'Her dream is to use her passion and devotion for sports to inspire women towards a healthier lifestyle, freedom and self-reliance. To empower, educate and enable women from all over the world to fight for their rights, pursue their dreams and reach their maximum potential. Having come from nothing, a small town in a suburb in Buenos Aires, and having turned the many obstacles ahead of her into blessings and opportunities to grow, she is a true believer that anything is possible in this life. '
   }
 }
+
+export const fbLink = 'https://www.facebook.com/Nomad-Yoga-Meditation-Reiki-132243704300765/?hc_ref=ARSwmwMabO66qzEVPId0P4K9gwrg18GVMuPLTxNGStcb5bQWo1r5gqEsLemV8I4GGOI&fref=nf';
