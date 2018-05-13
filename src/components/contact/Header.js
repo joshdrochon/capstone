@@ -1,6 +1,13 @@
 import React from 'react';
 import reachOut from './../../assets/images/banners/banner_contact.jpg';
 
+function scrollable(){
+  let target = document.getElementById('contact-form').getBoundingClientRect();
+  window.scrollTo(0, target.top);
+
+  console.log(target.top, target.right, target.bottom, target.left);
+}
+
 const styles = {
   header: {
     width: '100vw',
@@ -25,17 +32,13 @@ const Header = () => {
   return(
     <div style={styles.header}>
       <style>{`
-        #contact-pointer:hover{
+        #pointer:hover{
           text-shadow: 0px 0px 10px;
           cursor: pointer;
         }
-        #contact-pointer a{
-          text-decoration: none;
-          color: inherit;
-        }
       `}
       </style>
-      <span style={styles.pointer} id='contact-pointer' style={styles.pointer}><a href='#contact-form'>CONTACT US</a></span>
+      <span style={styles.pointer} onClick={scrollable} id='pointer' style={styles.pointer}>CONTACT US</span>
     </div>
   );
 }

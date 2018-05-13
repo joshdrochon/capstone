@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import Header from './Header';
 
-const Services = () => {
-  return(
-    <div>
-      <Header/>
-    </div>
-  );
+class Services extends Component {
+  render(){
+    return(
+      <Fragment>
+        <Header/>
+      </Fragment>
+    );
+  }
 }
 
 export default Services;

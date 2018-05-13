@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import ReallySmoothScroll from 'really-smooth-scroll';
 import LandingPage from './LandingPage';
 import About from './about/About';
 import Footer from './application/Footer';
@@ -8,12 +9,9 @@ import Services from './services/Services';
 import ContactPage from './contact/Contact';
 import Blog from './blog/Blog';
 
+ReallySmoothScroll.shim();
+
 class App extends Component {
-
-  componentDidMount(){
-    window.scrollTo(0,0);
-  }
-
   render(){
     return (
       <div className='wrapper'>
@@ -47,7 +45,6 @@ class App extends Component {
 
 export default App;
 
-//implement <ScrollableLink/>
 //beautify <Carousel/>
 
 
