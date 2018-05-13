@@ -39,7 +39,7 @@ const Header = () => {
           }
       `}
       </style>
-      <Link id='tagline' style={styles.tagline} to='/services'><text>YOUR JOURNEY AWAITS</text></Link>
+      <Link id='tagline' style={styles.tagline} to='/services'><p>YOUR JOURNEY AWAITS</p></Link>
     </div>
   );
 }
