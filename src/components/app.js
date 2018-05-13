@@ -43,3 +43,6 @@ export default App;
 //implement Navbar onScroll toggle
 //implement <ScrollableLink/>
 //beautify <Carousel/>
+
+
+//do ajax call in component did mount. If the component //hasn't mounted, how can it receive any data?

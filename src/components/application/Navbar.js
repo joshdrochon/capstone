@@ -5,25 +5,24 @@ import compass from './../../assets/images/splash/compass.png';
 import menuIcon from './menu-icon.svg';
 
 const fontResize = () => {
-  var perc = parseInt($(window).width())/60;
+  let perc = parseInt($(window).width())/60;
   $('#navbar').css('font-size',perc);
 }
+
 $(() => {
     fontResize();
 });
 $(window).resize(() => {
-    fontResize();
+  fontResize();
 });
 
-
-$(document).ready(function(){
-    $('#menu').click(function(){
-        $('#options').slideToggle();
-    });
-
-    $('#options').click(function(){
-      $('#options').hide();
-    });
+$(( )=> {
+  $('#menu').click(() => {
+    $('#options').slideToggle();
+  });
+  $('#options').click(() => {
+    $('#options').hide();
+  });
 });
 
 const Navbar = () => {
@@ -75,11 +74,16 @@ const Navbar = () => {
           #menu{
             display: block;
           }
-          #options{
-            margin-top: 71px;
-          }
         }
-
+        #options{
+          margin-top: 70px;
+        }
+        #options div{
+          border-bottom: 1px solid black;
+        }
+        #home{
+          border-top: 1px solid black;
+        }
         .nav{
           display: none;
           padding: 0px;
@@ -101,7 +105,6 @@ const Navbar = () => {
           text-align: center;
           line-height: 70px;
           background-color: white;
-          border-bottom: 1px solid black;
         }
         .nav a{
           font-size: 220%;
@@ -113,6 +116,7 @@ const Navbar = () => {
         }
         #target{
           font-size: 220%;
+          border-bottom: none;
         }
         #menu-icon{
           width: 50px;
@@ -134,7 +138,7 @@ const Navbar = () => {
       </div>
 
       <div className='nav' id='options'>
-        <Link to='/'><div>HOME</div></Link>
+        <Link to='/'><div id='home'>HOME</div></Link>
         <Link to='/about'><div>ABOUT</div></Link>
         <Link to='/services'><div>SERVICES</div></Link>
         <Link to='/blog'><div>BLOG</div></Link>
