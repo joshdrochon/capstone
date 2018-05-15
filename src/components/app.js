@@ -8,6 +8,7 @@ import Navbar from './application/Navbar';
 import Services from './services/Services';
 import ContactPage from './contact/Contact';
 import Blog from './blog/Blog';
+import NewBlogPostControl from './admin/NewBlogPostControl';
 
 import Playground from './playground/Playground';
 
@@ -36,6 +37,7 @@ class App extends Component {
           <Route exact path='/' component={LandingPage}/>
           <Route path ='/about' component={About}/>
           <Route path='/services' component={Services}/>
+          <Route path='/admin' component={NewBlogPostControl} />
           <Route path='/contact' component={ContactPage}/>
           <Route path='/blog' component={Blog}/>
           <Route path='/playground' component={Playground}/>

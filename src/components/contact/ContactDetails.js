@@ -2,7 +2,7 @@ import React from 'react';
 
 const ContactDetails = () => {
   return(
-    <p></p>
+    <p>Contact details works</p>
   );
 }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from './Header';
 import BlogList from './BlogList';
 
 class Blog extends Component {
@@ -10,7 +9,6 @@ class Blog extends Component {
   render(){
     return(
       <div id='blog'>
-        <Header/>
         <BlogList/>
       </div>
     );

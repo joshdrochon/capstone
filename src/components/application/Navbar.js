@@ -74,14 +74,14 @@ const Navbar = () => {
             display: block;
           }
         }
+        @media(min-width: 701px){
+          #options{
+            display: none !important;
+          }
+        }
+
         #options{
           margin-top: 70px;
-        }
-        #options div{
-          border-bottom: 1px solid black;
-        }
-        #home{
-          border-top: 1px solid black;
         }
         .nav{
           display: none;
@@ -126,7 +126,7 @@ const Navbar = () => {
       </style>
       <div id='navbar'>
         <div><Link to='/about'>ABOUT</Link></div>
-        <div><Link to='/services'>SERVICES</Link></div>
+        <div><Link to='/services'>PRACTICE</Link></div>
         <div><Link id='logo' to='/'>NATALI'S <img id='compass' src={compass}/> JOURNEY</Link></div>
         <div><Link to='/blog'>BLOG</Link></div>
         <div><Link to='/contact'>CONTACT</Link></div>
@@ -139,7 +139,7 @@ const Navbar = () => {
       <div className='nav' id='options'>
         <Link to='/'><div id='home'>HOME</div></Link>
         <Link to='/about'><div>ABOUT</div></Link>
-        <Link to='/services'><div>SERVICES</div></Link>
+        <Link to='/services'><div>PRACTICE</div></Link>
         <Link to='/blog'><div>BLOG</div></Link>
         <Link to='/contact'><div>CONTACT</div></Link>
       </div>

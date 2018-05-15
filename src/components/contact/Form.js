@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
 
+const styles = {
+  form: {
+    padding: '25px',
+    border: '1px dotted red',
+    margin: 'auto',
+    marginTop: '50px',
+    width: '400px',
+    height: '700px',
+    marginTop: 'auto',
+    marginBottom: 'auto'
+  },
+  button: {
+    fontSize: '50px',
+    background: 'transparent',
+    color: '#202020',
+    border: 'none',
+    display: 'block',
+    margin: 'auto',
+    marginTop: '20px'
+  }
+}
+
 class Form extends Component {
   render(){
     return(
       <div>
         <style>{`
-          #contact-form{
-            padding: 25px;
-            border: 1px solid black;
-            margin: auto;
-            margin-top: 50px;
-            width: 400px;
-            height: 400px;
-            overflow-y: hidden;
-            margin-top: auto;
-            margin-bottom: auto;
-          }
           #contact-form *{
             font-weight: lighter;
             letter-spacing: 1px;
@@ -33,17 +44,11 @@ class Form extends Component {
             outline: none;
           }
           #submit-btn{
-            font-size: 50px;
-            background: transparent;
-            color: #202020;
-            border: none;
-            display: block;
-            margin: auto;
-            margin-top: 20px;
+
           }
           #submit-btn:hover{
             cursor: pointer;
-            text-shadow: 0px 0px 15px darkgray;
+            text-shadow: 0px 0px 20px dodgerblue;
           }
           #comment-tag{
             width: max-content;
@@ -65,12 +70,12 @@ class Form extends Component {
           }
         `}
         </style>
-        <form id='contact-form'>
+        <form id='contact-form' style={styles.form}>
           <h2>Firstname: </h2><input maxLength='17' type='text' required/>
           <h2>Lastname: </h2><input maxLength='17' type='text' required />
           <h2>Email: </h2><input maxLength='22' type='email' required />
           <h1 id='comment-tag'>Drop a comment</h1><textarea id='comment-field'></textarea>
-          <button id='submit-btn' type='submit'>Get in touch!</button>
+          <button id='submit-btn' style={styles.button} type='submit'>Get in touch!</button>
         </form>
       </div>
     );

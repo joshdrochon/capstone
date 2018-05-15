@@ -10,6 +10,7 @@ function expand(){
       $('#full-story').slideDown();
       $('#expand').hide();
       $('#collapse').show();
+      console.log('You slide me down');
     });
   });
 }
@@ -20,6 +21,7 @@ function collapse(){
       $('#full-story').slideUp();
       $('#expand').show();
       $('#collapse').hide();
+      console.log('You slide me up');
     });
   });
 }
@@ -33,7 +35,6 @@ const styles = {
     alignItems: 'center',
     height: 'max-content',
     paddingTop: '70px',
-    paddingBottom: '70px',
     overflow: 'hidden',
     position: 'relative'
   },
@@ -115,6 +116,7 @@ const BlogPost = () => {
             margin-top: 10px;
             word-spacing: 1px;
             line-height: 25px;
+            max-width: 900px;
           }
           p + p{
             margin-top: 10px;
