@@ -1,6 +1,5 @@
 import React from 'react';
-import paintStroke from './../../assets/images/blog/paint-stroke.png';
-import treeClipArt from './../../assets/images/blog/tree-clip-art.png';
+import Form from './Form';
 
 const styles = {
   flexParent: {
@@ -16,14 +15,14 @@ const styles = {
     position: 'relative'
   },
   flexChild: {
-    width: '45%',
-    minWidth: '550px',
+    width: '500px',
     height: 'max-content',
     textAlign: 'center',
     margin: '20px',
+    padding: '10px',
     boxSizing: 'border-box',
     overflow: 'hidden',
-    padding: '20px'
+    border: '1px dotted red'
   },
   hr: {
     width: '80%',
@@ -33,31 +32,24 @@ const styles = {
   }
 }
 
-const BlogView1 = () => {
+const ContactView2 = () => {
   return(
     <div style={styles.flexParent}>
       <style>{`
-        #paint{
-          width: 400px;
-          height: auto;
-          vertical-align: middle;
-        }
-        #tree{
-          width: 300px;
-          height: auto;
-          vertical-align: middle;
-        }
+
       `}
       </style>
+
       <div style={styles.flexChild}>
-        <img id='paint' src={paintStroke}/>
+        <p>Please feel from to donate. Every bit counts, thank you :)</p>
       </div>
+
       <div style={styles.flexChild}>
-        <img id='tree' src={treeClipArt}/>
+        <Form/>
       </div>
       <hr style={styles.hr}/>
     </div>
   );
 }
 
-export default BlogView1;
+export default ContactView2;

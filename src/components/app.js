@@ -9,6 +9,8 @@ import Services from './services/Services';
 import ContactPage from './contact/Contact';
 import Blog from './blog/Blog';
 
+import Playground from './playground/Playground';
+
 ReallySmoothScroll.shim();
 
 class App extends Component {
@@ -36,6 +38,7 @@ class App extends Component {
           <Route path='/services' component={Services}/>
           <Route path='/contact' component={ContactPage}/>
           <Route path='/blog' component={Blog}/>
+          <Route path='/playground' component={Playground}/>
         </Switch>
         <Footer/>
       </div>

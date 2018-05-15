@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import BlogView1 from './BlogView1';
-import Carousel from './Carousel';
+import BlogList from './BlogList';
 
 class Blog extends Component {
 
@@ -12,8 +11,7 @@ class Blog extends Component {
     return(
       <div id='blog'>
         <Header/>
-        <BlogView1/>
-        <Carousel/>
+        <BlogList/>
       </div>
     );
   }

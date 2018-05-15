@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 
 const styles = {
   header: {
+    position: 'absolute',
     width: '100vw',
     height: '85vh',
+    textAlign: 'center',
     backgroundImage: `url(${rocks})`,
-    backgroundSize: 'cover',
-    textAlign: 'center'
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat'
   },
   tagline: {
     position: 'absolute',
@@ -26,7 +28,7 @@ const styles = {
 
 const Header = () => {
   return(
-    <div style={styles.header}>
+    <div id='header' style={styles.header}>
       <style>{`
           #tagline:hover{
             text-shadow: 0px 0px 10px;
@@ -35,6 +37,11 @@ const Header = () => {
           @media (max-width: 500px){
             #tagline{
               font-size: 36px !important;
+            }
+          }
+          @media (min-width: 1100px){
+            #header{
+              background-size: cover !important;
             }
           }
       `}

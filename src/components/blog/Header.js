@@ -1,20 +1,71 @@
+
 import React from 'react';
-import rocks from './../../assets/images/banners/banner_blog.jpg';
+import paintStroke from './../../assets/images/blog/paint-stroke.png';
+import treeClipArt from './../../assets/images/blog/tree-clip-art.png';
 
 const styles = {
-  header: {
-    width: '100vw',
-    height: '100vh',
+  flexParent: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    height: 'max-content',
+    paddingTop: '70px',
+    paddingBottom: '70px',
+    overflow: 'hidden',
+    position: 'relative'
+  },
+  flexChild: {
+    width: '45%',
+    minWidth: '550px',
+    height: 'max-content',
     textAlign: 'center',
-    backgroundImage: `url(${rocks})`,
-    backgroundSize: 'cover'
+    margin: '20px',
+    boxSizing: 'border-box',
+    overflow: 'hidden',
+    padding: '20px'
+  },
+  hrTop: {
+    width: '80%',
+    margin: '0px',
+    position: 'absolute',
+    top: '71px'
+  },
+  hrBot: {
+    width: '80%',
+    margin: '0px',
+    position: 'absolute',
+    bottom: '0'
   }
 }
 
-const Header = () => {
+const BlogView1 = () => {
   return(
-    <div style={styles.header}></div>
+    <div style={styles.flexParent}>
+      <style>{`
+        #paint{
+          width: 400px;
+          height: auto;
+          vertical-align: middle;
+        }
+        #tree{
+          width: 300px;
+          height: auto;
+          vertical-align: middle;
+        }
+      `}
+      </style>
+      <hr style={styles.hrTop}/>
+      <div style={styles.flexChild}>
+        <img id='paint' src={paintStroke}/>
+      </div>
+      <div style={styles.flexChild}>
+        <img id='tree' src={treeClipArt}/>
+      </div>
+      <hr style={styles.hrBot}/>
+    </div>
   );
 }
 
-export default Header ;
+export default BlogView1;
