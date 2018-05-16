@@ -17,13 +17,15 @@ const ContactView1 = () => {
         }
         #top-container{
           width: 100%;
-          height: max-content;
-          padding: 70px 0px 70px 0px;
+          overflow-y: hidden;
           background-color: inherit;
+        }
+        #pointer-sm{
+          margin: 35px 35px;
         }
       `}
       </style>
-      <p id='pointer-sm'>Contact Us</p>
+      <p id='pointer-sm'> ~ Contact Us ~</p>
     </div>
   );
 }

@@ -9,22 +9,19 @@ class NewBlogPostControl extends Component {
     this.state = {
       formVisibleOnPage: false
     };
-    // this.handleClick = this.handleClick.bind(this);
+    this.handleLoginConfirmation = this.handleLoginConfirmation.bind(this);
   }
-  // 
-  // handleClick(){
-  //   this.setState({
-  //     formVisibleOnPage: true
-  //   });
-  //   console.log('the form is currently set to ' + this.state.formVisibleOnPage);
-  // }
+
+  handleLoginConfirmation(){
+     this.setState({formVisibleOnPage: true});
+   }
 
   render(){
     let currentlyVisibleContent = null;
     if(this.state.formVisibleOnPage){
       currentlyVisibleContent = <NewBlogPostForm/>;
     } else {
-      currentlyVisibleContent = <Login/>;
+      currentlyVisibleContent = <Login onHandleLoginConfirmation={this.handleLoginConfirmation}/>;
     }
     return(
       <Fragment>

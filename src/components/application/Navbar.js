@@ -126,7 +126,7 @@ const Navbar = () => {
       </style>
       <div id='navbar'>
         <div><Link to='/about'>ABOUT</Link></div>
-        <div><Link to='/services'>PRACTICE</Link></div>
+        <div><Link to='/practice'>PRACTICE</Link></div>
         <div><Link id='logo' to='/'>NATALI'S <img id='compass' src={compass}/> JOURNEY</Link></div>
         <div><Link to='/blog'>BLOG</Link></div>
         <div><Link to='/contact'>CONTACT</Link></div>

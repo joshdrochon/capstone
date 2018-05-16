@@ -6,7 +6,6 @@ const BlogList = () => {
     <Fragment>
       <BlogPost key={1}/>
       <BlogPost key={2}/>
-      <BlogPost key={3}/>
     </Fragment>
   );
 }

@@ -1,12 +1,24 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-function Login(){
+const Login = (props) => {
+  let password = null;
   return (
-    <form>
-      <input type='passowrd'/>
-      <button type='submit'>Submit</button>
-    </form>
+    <div>
+      <form>
+        <input
+          type='text'
+          id='password'
+          placeholder='Please enter your password'
+          ref={(input) => {password = input;}}/>
+        <button onClick={props.onHandleLoginConfirmation} type='button'>Submit</button>
+      </form>
+    </div>
   );
 }
+
+Login.propTypes = {
+  onHandleLoginConfirmation: PropTypes.func
+};
 
 export default Login;
