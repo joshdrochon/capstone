@@ -139,7 +139,7 @@ const Navbar = () => {
       <div className='nav' id='options'>
         <Link to='/'><div id='home'>HOME</div></Link>
         <Link to='/about'><div>ABOUT</div></Link>
-        <Link to='/services'><div>PRACTICE</div></Link>
+        <Link to='/practice'><div>PRACTICE</div></Link>
         <Link to='/blog'><div>BLOG</div></Link>
         <Link to='/contact'><div>CONTACT</div></Link>
       </div>

@@ -9,7 +9,7 @@ const styles = {
     textAlign: 'center',
     position: 'relative',
     backgroundColor: 'white',
-    top: '650px',
+    top: '83vh',
     height: 'max-content'
   }
 }
@@ -20,7 +20,7 @@ const ContactWrapper = () => {
       <style>{`
         @media(max-width: 700px){
           #contact-wrapper{
-            top: 400px !important;
+            top: 50vh !important;
           }
       `}
       </style>

@@ -3,13 +3,11 @@ import React, { Component } from 'react';
 const styles = {
   form: {
     padding: '25px',
-    border: '1px dotted red',
     margin: 'auto',
-    marginTop: '50px',
     width: '400px',
-    height: '700px',
-    marginTop: 'auto',
-    marginBottom: 'auto'
+    height: '640px',
+    marginTop: '50px',
+    marginBottom: '50px'
   },
   button: {
     fontSize: '50px',
@@ -34,7 +32,6 @@ class Form extends Component {
           #contact-form input{
             display: block;
             width: 100%;
-            border: 1px solid black;
             background: snow;
             border-radius: 10px 8px 25px 10px;
             font-size: 32px;
@@ -42,9 +39,6 @@ class Form extends Component {
           }
           #contact-form input:focus{
             outline: none;
-          }
-          #submit-btn{
-
           }
           #submit-btn:hover{
             cursor: pointer;

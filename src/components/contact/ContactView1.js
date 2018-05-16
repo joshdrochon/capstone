@@ -1,4 +1,6 @@
 import React from 'react';
+import { scrollable } from './../../helpers';
+import arrowUp from './../../assets/images/utility/arrow-up.png';
 
 const ContactView1 = () => {
   return(
@@ -14,18 +16,35 @@ const ContactView1 = () => {
           #pointer-sm{
             display: block;
           }
+          #slideup-btn-cont{
+            display: none;
+          }
         }
         #top-container{
           width: 100%;
           overflow-y: hidden;
           background-color: inherit;
         }
+        #slideup-btn-cont{
+          width: 100%;
+          padding-top: 10px;
+        }
         #pointer-sm{
           margin: 35px 35px;
         }
+        #slideup-btn{
+          width: 50px;
+          height: 50px;
+        }
+        #slideup-btn:hover{
+          cursor: pointer;
+          transform: translate(0px, -2px);
+        }
       `}
       </style>
-      <p id='pointer-sm'> ~ Contact Us ~</p>
+      <div id='slideup-btn-cont'>
+      <img src={arrowUp} id='slideup-btn' onClick={scrollable}/></div>
+      <p id='pointer-sm'> ~ Contact Us ~ </p>
     </div>
   );
 }

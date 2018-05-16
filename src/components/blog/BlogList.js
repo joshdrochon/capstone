@@ -3,10 +3,16 @@ import BlogPost from './BlogPost';
 
 const BlogList = () => {
   return(
-    <Fragment>
+    <div id='blog-list'>
+      <style>{`
+          #blog-list>:last-child{
+            padding-bottom: 70px;
+          }
+      `}
+      </style>
       <BlogPost key={1}/>
       <BlogPost key={2}/>
-    </Fragment>
+    </div>
   );
 }
 

@@ -9,6 +9,7 @@ import Practice from './practice/Practice';
 import ContactPage from './contact/Contact';
 import Blog from './blog/Blog';
 import NewBlogPostControl from './admin/NewBlogPostControl';
+import PhotoAlbum from './practice/album/PhotoAlbum';
 
 import Playground from './playground/Playground';
 
@@ -22,7 +23,7 @@ class App extends Component {
             *{
               margin: 0px;
               padding: 0px;
-              font-family: 'indie flower', cursive;
+              font-family: 'indie flower', 'book-antique';
             }
             body{
               background-color: white;
@@ -41,6 +42,7 @@ class App extends Component {
           <Route path='/contact' component={ContactPage}/>
           <Route path='/blog' component={Blog}/>
           <Route path='/playground' component={Playground}/>
+          <Route path='/photography' component={PhotoAlbum}/>
         </Switch>
         <Footer/>
       </div>

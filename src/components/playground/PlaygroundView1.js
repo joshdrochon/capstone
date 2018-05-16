@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const styles={
   tagline:{
@@ -9,34 +9,36 @@ const styles={
   }
 }
 
-const PlaygroundView1 = () => {
-  return(
-    <div id='content'>
-      <style>{`
-        #content{
-          width: 100%;
-          text-align: center;
-          position: relative;
-          background-color: lightgray;
-          top: 650px;
-          height: 1500px;
-        }
-        #tagline-sm{
-          display: none;
-        }
-        @media(max-width: 700px){
+class PlaygroundView1 extends Component{
+  render(){
+    return(
+      <div id='content'>
+        <style>{`
           #content{
-            top: 400px !important;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            background-color: lightgray;
+            top: 650px;
+            height: 1500px;
           }
           #tagline-sm{
-            display: block;
+            display: none;
           }
-        }
-      `}
-      </style>
-      <p id='tagline-sm' style={styles.tagline}>X</p>
-    </div>
-  );
+          @media(max-width: 700px){
+            #content{
+              top: 400px !important;
+            }
+            #tagline-sm{
+              display: block;
+            }
+          }
+        `}
+        </style>
+        <p id='tagline-sm' style={styles.tagline}>X</p>
+      </div>
+    );
+  }
 }
 
 export default PlaygroundView1 ;

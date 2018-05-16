@@ -7,7 +7,7 @@ const styles = {
     textAlign: 'center',
     position: 'relative',
     backgroundColor: 'white',
-    top: '650px',
+    top: '83vh',
     height: 'max-content'
   }
 }
@@ -18,8 +18,8 @@ const PracticeWrapper = () => {
       <style>{`
         @media(max-width: 700px){
           #practice-wrapper{
-            top: 400px !important;
-          }
+            top: 50vh !important;
+        }
       `}
       </style>
       <PracticeView1/>
