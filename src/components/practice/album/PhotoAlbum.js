@@ -10,16 +10,12 @@ import natali8 from '../../../assets/images/profile_pix/natali8.jpeg';
 import natali9 from '../../../assets/images/profile_pix/natali9.jpeg';
 import natali10 from '../../../assets/images/profile_pix/natali10.jpeg';
 import natali11 from '../../../assets/images/profile_pix/natali11.jpeg';
-import natali12 from '../../../assets/images/profile_pix/natali12.jpeg';
+import natali12 from '../../../assets/images/profile_pix/natali12.png';
 import natali13 from '../../../assets/images/profile_pix/natali13.jpeg';
-import natali14 from '../../../assets/images/profile_pix/natali14.png';
-import natali15 from '../../../assets/images/profile_pix/natali15.png';
-import natali16 from '../../../assets/images/profile_pix/natali16.jpeg';
 
 const styles = {
   grid: {
     display: 'grid',
-    width: '98%',
     height: 'max-content',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gridTemplateRows: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -29,9 +25,7 @@ const styles = {
   },
   cell: {
     padding: '0px',
-    width: '300px',
     height: 'max-content',
-    overflow: 'hidden',
     margin: 'auto',
     transition: 'transform .5s'
   },
@@ -45,9 +39,22 @@ const PhotoAlbum = () => {
   return(
     <div>
       <style>{`
-          #grid div:hover{
-            cursor: pointer;
-            transform: scale(1.20);
+          @media(min-width: 600px){
+            #grid div:hover{
+              cursor: pointer;
+              transform: scale(1.15);
+            }
+            #grid div{
+              overflow: hidden;
+            }
+            #grid{
+              width: 98%;
+            }
+          }
+          @media(max-width: 601px){
+            #grid{
+              grid-gap: 0px !important;
+            }
           }
         `}
       </style>
@@ -65,9 +72,6 @@ const PhotoAlbum = () => {
         <div style={styles.cell}><img style={styles.img} src={natali11}/></div>
         <div style={styles.cell}><img style={styles.img} src={natali12}/></div>
         <div style={styles.cell}><img style={styles.img} src={natali13}/></div>
-        <div style={styles.cell}><img style={styles.img} src={natali14}/></div>
-        <div style={styles.cell}><img style={styles.img} src={natali15}/></div>
-        <div style={styles.cell}><img style={styles.img} src={natali16}/></div>
       </div>
     </div>
 

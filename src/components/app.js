@@ -20,17 +20,17 @@ class App extends Component {
     return (
       <div className='wrapper'>
         <style>{`
-            *{
-              margin: 0px;
-              padding: 0px;
-              font-family: 'indie flower', 'book-antique';
-            }
-            body{
-              background-color: white;
-            }
-            .wrapper{
-              padding-top: 70px;
-            }
+          *{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'indie flower', 'book-antique';
+          }
+          body{
+            background-color: white;
+          }
+          .wrapper{
+            padding-top: 70px;
+          }
         `}
         </style>
         <Navbar/>
