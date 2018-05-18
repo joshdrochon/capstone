@@ -15,7 +15,7 @@ User should able to
 
 ## Setup/Installation Requirements
 
-* _To properly use this application in its MVP state, clone from GitHub, to your desktop or location of choice, run npm install from the terminal or command line to install all necessary plugins and dependencies. Then run npm run start to start the application. Navigate to local http://localhost:8080/#/ in your browser of choice. Google Chrome recommended due to up-to-date functionality.
+* To properly use this application in its MVP state, clone from GitHub, to your desktop or location of choice, run npm install from the terminal or command line to install all necessary plugins and dependencies. Then run npm run start to start the application. Navigate to local http://localhost:8080/#/ in your browser of choice. Google Chrome recommended due to up-to-date functionality.
 
 ## Known Bugs
 
@@ -27,7 +27,7 @@ _If you have any questions, concerns, complaints, suggestions for improvements o
 
 ## Technologies Used in the production of this project
 
-_MacOSX Terminal, Git, Github, HTML5, CSS3, ES6, jQuery, Node.js, Webpack, Jasmine Testing library_
+_MacOSX Terminal, Git, Github, HTML5, CSS3, ES6, jQuery, ReactJS library, Node Package Manager(NPM), Webpack Build Tool, Jasmine Testing library_
 
 ### License
 
