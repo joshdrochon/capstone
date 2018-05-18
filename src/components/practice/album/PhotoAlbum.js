@@ -10,8 +10,7 @@ import natali8 from '../../../assets/images/profile_pix/natali8.jpeg';
 import natali9 from '../../../assets/images/profile_pix/natali9.jpeg';
 import natali10 from '../../../assets/images/profile_pix/natali10.jpeg';
 import natali11 from '../../../assets/images/profile_pix/natali11.jpeg';
-import natali12 from '../../../assets/images/profile_pix/natali12.png';
-import natali13 from '../../../assets/images/profile_pix/natali13.jpeg';
+import natali12 from '../../../assets/images/profile_pix/natali13.jpeg';
 
 const styles = {
   grid: {
@@ -25,7 +24,8 @@ const styles = {
   },
   cell: {
     padding: '0px',
-    height: 'max-content',
+    height: '300px',
+    width: '300px',
     margin: 'auto',
     transition: 'transform .5s'
   },
@@ -51,11 +51,6 @@ const PhotoAlbum = () => {
               width: 98%;
             }
           }
-          @media(max-width: 601px){
-            #grid{
-              grid-gap: 0px !important;
-            }
-          }
         `}
       </style>
       <div id='grid' style={styles.grid}>
@@ -71,7 +66,6 @@ const PhotoAlbum = () => {
         <div style={styles.cell}><img style={styles.img} src={natali10}/></div>
         <div style={styles.cell}><img style={styles.img} src={natali11}/></div>
         <div style={styles.cell}><img style={styles.img} src={natali12}/></div>
-        <div style={styles.cell}><img style={styles.img} src={natali13}/></div>
       </div>
     </div>
 

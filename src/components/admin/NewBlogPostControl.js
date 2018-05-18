@@ -1,6 +1,7 @@
 import React, { Component, Fragment} from 'react';
 import Login from './Login';
 import NewBlogPostForm from './NewBlogPostForm';
+import PropTypes from 'prop-types';
 
 class NewBlogPostControl extends Component {
 
@@ -19,7 +20,7 @@ class NewBlogPostControl extends Component {
   render(){
     let currentlyVisibleContent = null;
     if(this.state.formVisibleOnPage){
-      currentlyVisibleContent = <NewBlogPostForm/>;
+      currentlyVisibleContent = <NewBlogPostForm onNewPostCreation={this.props.onNewPostCreation}/>;
     } else {
       currentlyVisibleContent = <Login onHandleLoginConfirmation={this.handleLoginConfirmation}/>;
     }
@@ -30,6 +31,10 @@ class NewBlogPostControl extends Component {
     )
   }
 }
+
+NewBlogPostControl.propTypes = {
+  onNewPostCreation: PropTypes.func
+};
 
 
 export default NewBlogPostControl;

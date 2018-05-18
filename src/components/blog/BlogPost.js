@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import imgBp1 from './img_bp1.jpg';
 import { allText } from './../../text-blocks';
 import natiIcon from './../../assets/images/social/nati-icon.png';
@@ -71,7 +72,7 @@ const styles = {
   }
 }
 
-const BlogPost = () => {
+const BlogPost = (props) => {
   return(
     <div id='blog-post' style={styles.flexParent}>
       <style>{`
@@ -84,6 +85,10 @@ const BlogPost = () => {
           }
           #details p{
             display: inline-block;
+          }
+          #comment-anchor:hover{
+            text-decoration: underline;
+            cursor: pointer;
           }
           #icon{
             z-index: 1;
@@ -134,9 +139,9 @@ const BlogPost = () => {
       <div id='img-cont' style={styles.flxImgC}/>
       <div style={styles.flxWrapper}>
         <div style={styles.flxDisplay}>
-          <h1 style={styles.flxTitle}> My Journey from India to Nepal</h1>
+          <h1 style={styles.flxTitle}>{props.title}</h1>
           <div id='details'>
-            <p>Leave a comment</p><span className='partition'>|</span>
+            <p id='comment-anchor'>Leave a comment</p><span className='partition'>|</span>
             <p>14 May, 2018</p><span className='partition'>|</span>
             <p>Natali Coronel</p>
             <img id='icon' src={natiIcon}/>
@@ -145,7 +150,7 @@ const BlogPost = () => {
             <p style={styles.flxSum}>{allText.blogPostSummary.p1}</p>
           </article>
           <article id='full-story'>
-            <p>{allText.blogPostSummary.p2}</p>
+            <p>{props.body}</p>
             <p>This is some test text</p>
           </article>
           <h3 className='clickable' id='expand' onClick={expand}>Continue Article -></h3>
@@ -155,5 +160,11 @@ const BlogPost = () => {
     </div>
   );
 }
+
+BlogPost.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+  image: PropTypes.string
+};
 
 export default BlogPost;

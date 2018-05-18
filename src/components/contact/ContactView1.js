@@ -1,50 +1,57 @@
 import React from 'react';
-import { scrollable } from './../../helpers';
-import arrowUp from './../../assets/images/utility/arrow-up.png';
+import Form from './Form';
+import reachOut from './../../assets/images/contact/reach-out.jpg';
+
+const styles = {
+  flexParent: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'reverse-wrap',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    height: 'max-content',
+    paddingTop: '70px',
+    paddingBottom: '70px',
+    overflow: 'hidden',
+    position: 'relative',
+    border: 'border 1px solid black'
+  },
+  flexChild: {
+    width: '500px',
+    height: 'max-content',
+    textAlign: 'center',
+    margin: '20px',
+    padding: '10px',
+    boxSizing: 'border-box',
+    overflow: 'hidden',
+    border: '1px solid black'
+  },
+  hr: {
+    width: '80%',
+    margin: '0px',
+    position: 'absolute',
+    bottom: '0'
+  }
+}
 
 const ContactView1 = () => {
   return(
-    <div id='top-container'>
+    <div style={styles.flexParent}>
       <style>{`
-        #pointer-sm{
-          display: none;
-          color: black;
-          font-size: calc(30px + 2.5vw);
-          font-weight: lighter;
-        }
-        @media(max-width: 700px){
-          #pointer-sm{
-            display: block;
-          }
-          #slideup-btn-cont{
-            display: none;
-          }
-        }
-        #top-container{
+        #reach-out{
+          height: auto;
           width: 100%;
-          overflow-y: hidden;
-          background-color: inherit;
-        }
-        #slideup-btn-cont{
-          width: 100%;
-          padding-top: 10px;
-        }
-        #pointer-sm{
-          margin: 35px 35px;
-        }
-        #slideup-btn{
-          width: 50px;
-          height: 50px;
-        }
-        #slideup-btn:hover{
-          cursor: pointer;
-          transform: translate(0px, -2px);
+          vertical-align: middle;
         }
       `}
       </style>
-      <div id='slideup-btn-cont'>
-      <img src={arrowUp} id='slideup-btn' onClick={scrollable}/></div>
-      <p id='pointer-sm'> ~ Contact Us ~ </p>
+      <div style={styles.flexChild}>
+        <Form/>
+      </div>
+      <div style={styles.flexChild}>
+        <img id='reach-out' src={reachOut}/>
+      </div>
+      <hr style={styles.hr}/>
     </div>
   );
 }

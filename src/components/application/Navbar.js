@@ -111,7 +111,7 @@ const Navbar = () => {
           color: inherit;
         }
         .nav div:hover:not(#target){
-          box-shadow: inset 6px 0 0 0 #6f8a6d;
+          box-shadow: inset 6px 0 0 0 dodgerblue;
         }
         #target{
           font-size: 220%;
@@ -133,7 +133,7 @@ const Navbar = () => {
       </div>
 
       <div className='nav' id='menu'>
-        <div id='target'>MENU <img id='menu-icon' src={menuIcon}/></div>
+        <div id='target'><img id='menu-icon' src={menuIcon}/></div>
       </div>
 
       <div className='nav' id='options'>

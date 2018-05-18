@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const NewBlogPostForm = () => {
   let title = null;
@@ -7,7 +8,8 @@ const NewBlogPostForm = () => {
 
   function handleNewBlogPostFormSubmission(e) {
     e.preventDefault();
-    console.log(title.value);
+    props.onNewPostCreation({title: title.value, body: body.value, image: image.value});
+
     title.value = '';
     body.value = '';
     image.value = '';
@@ -34,5 +36,9 @@ const NewBlogPostForm = () => {
     </div>
   );
 }
+
+NewBlogPostForm.propTypes = {
+  onNewPostCreation: PropTypes.func
+};
 
 export default NewBlogPostForm ;

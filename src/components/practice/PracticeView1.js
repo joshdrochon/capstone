@@ -37,7 +37,7 @@ const PracticeView1 = () => {
       <style>{`
         #slideup-btn-cont{
           width: 100%;
-          padding: 10px 0px 5px 0px;
+          padding: 6px 0px 5px 0px;
           height: max-content;
         }
         #slideup-btn{

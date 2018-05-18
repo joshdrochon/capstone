@@ -16,6 +16,27 @@ import Playground from './playground/Playground';
 ReallySmoothScroll.shim();
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      masterBlogPostList: [
+        {
+          title: 'From India to Nepal',
+          body: 'There was a successfully displaying blogpost'
+        }
+      ]
+    };
+    this.handleAddingNewBlogPost = this.handleAddingNewBlogPost.bind(this);
+  }
+
+  handleAddingNewBlogPost(newPost){
+    let newMasterBlogPostList = this.state.masterBlogPostList.slice();
+    newMasterBlogPostList.push(newPost);
+    this.setState({
+      masterBlogPostList: newMasterBlogPostList
+    });
+  }
+
   render(){
     return (
       <div className='wrapper'>
@@ -36,11 +57,17 @@ class App extends Component {
         <Navbar/>
         <Switch>
           <Route exact path='/' component={LandingPage}/>
-          <Route path ='/about' component={About}/>
+          <Route path='/about' component={About}/>
+          <Route
+            path='/admin'
+            render={()=><NewBlogPostControl   onNewPostCreation={this.handleAddingNewBlogPost} />}
+          />
           <Route path='/practice' component={Practice}/>
-          <Route path='/admin' component={NewBlogPostControl} />
           <Route path='/contact' component={ContactPage}/>
-          <Route path='/blog' component={Blog}/>
+          <Route path='/blog'
+            render={()=><Blog
+            blogPostList={this.state.masterBlogPostList} />}
+          />
           <Route path='/playground' component={Playground}/>
           <Route path='/photography' component={PhotoAlbum}/>
         </Switch>
@@ -51,8 +78,3 @@ class App extends Component {
 }
 
 export default App;
-
-//beautify <Carousel/>
-
-
-//do ajax call in component did mount. If the component //hasn't mounted, how can it receive any data?
