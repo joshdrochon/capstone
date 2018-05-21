@@ -1,20 +1,17 @@
 import React from 'react';
 import Form from './Form';
-import reachOut from './../../assets/images/contact/reach-out.jpg';
 
 const styles = {
   flexParent: {
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'reverse-wrap',
+    flexWrap: 'wrap-reverse',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     height: 'max-content',
     paddingTop: '70px',
     paddingBottom: '70px',
-    overflow: 'hidden',
-    position: 'relative',
-    border: 'border 1px solid black'
+    position: 'relative'
   },
   flexChild: {
     width: '500px',
@@ -23,8 +20,7 @@ const styles = {
     margin: '20px',
     padding: '10px',
     boxSizing: 'border-box',
-    overflow: 'hidden',
-    border: '1px solid black'
+    overflow: 'hidden'
   },
   hr: {
     width: '80%',
@@ -38,7 +34,7 @@ const ContactView1 = () => {
   return(
     <div style={styles.flexParent}>
       <style>{`
-        #reach-out{
+        #contact-view{
           height: auto;
           width: 100%;
           vertical-align: middle;
@@ -49,7 +45,7 @@ const ContactView1 = () => {
         <Form/>
       </div>
       <div style={styles.flexChild}>
-        <img id='reach-out' src={reachOut}/>
+        <img id='contact-view' src={require('./../../assets/images/contact/contact-view.png')}/>
       </div>
       <hr style={styles.hr}/>
     </div>

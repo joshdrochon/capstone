@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BlogPost from './BlogPost';
 
-const BlogList = (props) => {
-  console.log(props);
+const BlogList = props => {
   return(
     <div id='blog-list'>
       <style>{`
@@ -12,20 +11,26 @@ const BlogList = (props) => {
         }
       `}
       </style>
-      {props.blogPostList.map((post, index) =>
+      {props.blogPostList.map((post) =>
       <BlogPost
+        author={post.author}
         title={post.title}
-        body={post.body}
+        preview={post.preview}
+        story={post.story}
         image={post.image}
-        key={index}/>
+        updatedPublishDate={post.updatedPublishDate}
+        key={post.id}
+        onBlogPostSelection={props.onBlogPostSelection}/>
       )}
-      <BlogPost/>
     </div>
   );
 }
 
+
+
 BlogList.propTypes = {
-  blogPostList: PropTypes.array
+  blogPostList: PropTypes.array,
+  onBlogPostSelection: PropTypes.func
 }
 
 export default BlogList;

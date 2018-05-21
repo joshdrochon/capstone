@@ -1,22 +1,22 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
-import compass from './../../assets/images/splash/compass.png';
-import menuIcon from './menu-icon.svg';
+import compass from './../../assets/images/utility/compass.png';
+import menuIcon from './../../assets/images/utility/menu-icon.svg';
 
-const fontResize = () => {
-  let perc = parseInt($(window).width())/60;
-  $('#navbar').css('font-size',perc);
-}
+// const fontResize = () => {
+//   let perc = parseInt($(window).width())/60;
+//   $('#navbar').css('font-size',perc);
+// }
+//
+// $(() => {
+//     fontResize();
+// });
+// $(window).resize(() => {
+//   fontResize();
+// });
 
-$(() => {
-    fontResize();
-});
-$(window).resize(() => {
-  fontResize();
-});
-
-$(( )=> {
+$(()=> {
   $('#menu').click(() => {
     $('#options').slideToggle();
   });
@@ -32,6 +32,7 @@ const Navbar = () => {
         #navbar{
           display: grid;
           grid-template-columns: 1fr 1fr 3fr 1fr 1fr;
+          font-size: calc(6px + 1.3vw);
           width: 100%;
           height: 80px;
           background: white;
@@ -46,7 +47,7 @@ const Navbar = () => {
           color: #101010;
           text-decoration: none;
           line-height: 80px;
-          font-size: 150%;
+
         }
         #logo{
           line-height: 80px;
@@ -58,7 +59,6 @@ const Navbar = () => {
           text-shadow: 0px 0px 25px dodgerblue;
         }
         #compass{
-          margin-top: auto;
           vertical-align: middle;
           width: 60px;
           height: 60px;
@@ -66,7 +66,13 @@ const Navbar = () => {
 
         {/* smaller screen styles */}
 
-        @media (max-width: 700px){
+        @media(max-width: 900px){
+          #logo{
+            font-size: 24px;
+          }
+        }
+
+        @media(max-width: 700px){
           #navbar{
             display: none;
           }
@@ -79,7 +85,6 @@ const Navbar = () => {
             display: none !important;
           }
         }
-
         #options{
           margin-top: 70px;
         }
@@ -110,17 +115,14 @@ const Navbar = () => {
           text-decoration: none;
           color: inherit;
         }
-        .nav div:hover:not(#target){
+        .nav div:hover:not(#menu-btn){
           box-shadow: inset 6px 0 0 0 dodgerblue;
-        }
-        #target{
-          font-size: 220%;
-          border-bottom: none;
         }
         #menu-icon{
           width: 50px;
           height: 50px;
           vertical-align: middle;
+
         }
       `}
       </style>
@@ -133,7 +135,7 @@ const Navbar = () => {
       </div>
 
       <div className='nav' id='menu'>
-        <div id='target'><img id='menu-icon' src={menuIcon}/></div>
+        <div id='menu-btn'><img id='menu-icon' src={menuIcon}/></div>
       </div>
 
       <div className='nav' id='options'>

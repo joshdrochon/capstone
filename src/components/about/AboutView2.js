@@ -1,5 +1,5 @@
 import React from 'react';
-import { allText } from './../../text-blocks';
+import { content } from './../application/Content.js';
 import zen from './../../assets/images/about/zen.jpg';
 
 const styles = {
@@ -33,20 +33,30 @@ const styles = {
 }
 const AboutView2 = () => {
   return(
-    <div style={styles.flexParent}>
+    <div id='flex-parent' style={styles.flexParent}>
       <style>{`
-          #envelope h3{
-            font-weight: lighter;
-            font-family: 'Book Antiqua';
-            letter-spacing: 2px;
+        #envelope h3{
+          font-weight: lighter;
+          letter-spacing: 2px;
+        }
+        @media(max-width: 700px){
+          #envelope{
+            padding: 2px;
+            text-align: justify;
+            text-justify: inter-word;
           }
+          #flex-parent{
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+          }
+        }
       `}
       </style>
       <article style={styles.flexChild}>
         <span id='envelope'>
-          <h3>{allText.about.p1}</h3><br/>
-          <h3>{allText.about.p2}</h3><br/>
-          <h3>{allText.about.p3}</h3><br/>
+          <h3>{content.about.p1}</h3><br/>
+          <h3>{content.about.p2}</h3><br/>
+          <h3>{content.about.p3}</h3><br/>
         </span>
       </article>
       <div style={styles.flexChild}>

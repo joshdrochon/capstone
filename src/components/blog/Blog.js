@@ -2,22 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BlogList from './BlogList';
 
-const Blog = (props) => {
-  console.log(props.blogPostList[0].title);
-
-  // componentDidMount(){
-  //   window.scrollTo(0,0)
-  // }
-
+const Blog = props => {
   return(
-    <div id='blog'>
-      <BlogList blogPostList={props.blogPostList}/>
+    <div>
+      <BlogList
+        blogPostList={props.blogPostList}
+        onBlogPostSelection={props.onBlogPostSelection}
+      />
     </div>
   );
 }
 
 Blog.propTypes = {
-  blogPostList: PropTypes.array
+  blogPostList: PropTypes.array,
+  onBlogPostSelection: PropTypes.func
 };
 
-export default Blog ;
+export default Blog;

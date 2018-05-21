@@ -5,13 +5,30 @@ const Login = (props) => {
   let password = null;
   return (
     <div>
-      <form>
+      <style>{`
+          #password{
+            margin-right: 10px;
+            font-size: 24px;
+          }
+          #login{
+            height: 24px;
+            padding: 5px;
+            border: 0px solid transparent;
+            background-color: darkgray;
+          }
+          #login-form{
+            margin: 50px 0px 0px 30px;
+          }
+      `}
+      </style>
+      <form id='login-form'>
         <input
-          type='text'
+          type='password'
           id='password'
-          placeholder='Please enter your password'
+          placeholder='Enter password'
           ref={(input) => {password = input;}}/>
-        <button onClick={props.onHandleLoginConfirmation} type='button'>Submit</button>
+        <button
+          id='login' onClick={props.onHandleLoginConfirmation} type='button'>Submit</button>
       </form>
     </div>
   );

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import imgBp1 from './img_bp1.jpg';
-import { allText } from './../../text-blocks';
 import natiIcon from './../../assets/images/social/nati-icon.png';
+import Moment from 'moment';
 import $ from 'jquery';
 
 function expand(){
@@ -11,7 +10,7 @@ function expand(){
       $('#full-story').slideDown();
       $('#expand').hide();
       $('#collapse').show();
-      console.log('You slide me down');
+      console.log('You slid me down');
     });
   });
 }
@@ -22,7 +21,7 @@ function collapse(){
       $('#full-story').slideUp();
       $('#expand').show();
       $('#collapse').hide();
-      console.log('You slide me up');
+      console.log('You slid me up');
     });
   });
 }
@@ -40,14 +39,11 @@ const styles = {
     position: 'relative'
   },
   flxImgC: {
-    backgroundImage: `url(${imgBp1})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    width: '950px',
-    height: '450px',
+    maxWidth: '950px',
+    maxHeight: '450px',
     textAlign: 'center',
     borderRadius: '14px',
-    verticalAlign: 'middle',
+    overflow: 'hidden'
   },
   flxTitle: {
     width: '100%',
@@ -72,10 +68,13 @@ const styles = {
   }
 }
 
-const BlogPost = (props) => {
+const BlogPost = props => {
   return(
     <div id='blog-post' style={styles.flexParent}>
       <style>{`
+          .blog-image{
+            width: 100%;
+          }
           #details{
             margin-top: 10px;
             display: flex;
@@ -115,16 +114,11 @@ const BlogPost = (props) => {
           .clickable:hover{
             cursor: pointer;
           }
-
           #full-story{
             display: none;
-            margin-top: 10px;
             word-spacing: 1px;
             line-height: 25px;
             max-width: 900px;
-          }
-          p + p{
-            margin-top: 10px;
           }
           #collapse{
             display: none;
@@ -136,24 +130,25 @@ const BlogPost = (props) => {
           }
       `}
       </style>
-      <div id='img-cont' style={styles.flxImgC}/>
+      <div id='img-cont' style={styles.flxImgC}>
+        <img className='blog-image' src={require(`${props.image}`)} />
+      </div>
       <div style={styles.flxWrapper}>
         <div style={styles.flxDisplay}>
           <h1 style={styles.flxTitle}>{props.title}</h1>
           <div id='details'>
             <p id='comment-anchor'>Leave a comment</p><span className='partition'>|</span>
-            <p>14 May, 2018</p><span className='partition'>|</span>
-            <p>Natali Coronel</p>
+            <p>{props.updatedPublishDate} ago</p><span className='partition'>|</span>
+            <p>{props.author}</p>
             <img id='icon' src={natiIcon}/>
           </div>
           <article style={styles.flxSumC}>
-            <p style={styles.flxSum}>{allText.blogPostSummary.p1}</p>
+            <p style={styles.flxSum}>{props.preview}</p>
           </article>
           <article id='full-story'>
-            <p>{props.body}</p>
-            <p>This is some test text</p>
+            <p>{props.story}</p>
           </article>
-          <h3 className='clickable' id='expand' onClick={expand}>Continue Article -></h3>
+          <h3 className='clickable' id='expand' onClick={expand}>Continue Article</h3>
           <h3 className='clickable' id='collapse' onClick={collapse}>Collapse Article</h3>
         </div>
       </div>
@@ -162,9 +157,13 @@ const BlogPost = (props) => {
 }
 
 BlogPost.propTypes = {
+  author: PropTypes.string,
   title: PropTypes.string,
-  body: PropTypes.string,
-  image: PropTypes.string
+  preview: PropTypes.string,
+  story: PropTypes.string,
+  image: PropTypes.string,
+  updatedPublishDate: PropTypes.instanceOf(Moment),
+  onBlogPostSelection: PropTypes.func
 };
 
 export default BlogPost;

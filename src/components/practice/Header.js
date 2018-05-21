@@ -1,43 +1,33 @@
 import React from 'react';
-import openHands from './../../assets/images/banners/banner_practice.jpg';
 
 const styles = {
-  header: {
-    width: '100vw',
-    height: '90vh',
-    textAlign: 'center',
-    position: 'fixed',
-    backgroundImage: `url(${openHands})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat'
+  flexParent: {
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  flxImgC: {
+    width: '100%',
+    height: 'max-content',
+    maxHeight: '85vh',
+    overflow: 'hidden'
   }
 }
+
 const Header = () => {
   return(
-    <div id='header' style={styles.header}>
+    <div style={styles.flexParent}>
       <style>{`
-        #pointer-lg{
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: max-content;
-          color: white;
-          font-size: 70px;
-          transition: text-shadow 0.5s ease-in-out;
-        }
-        @media(min-width: 700px){
-          #header{
-            background-size: cover !important;
-          }
-        }
-        @media(max-width: 700px){
-          #pointer-lg{
-            display: none;
-          }
+        #banner-practice{
+          width: 100%;
+          display: block;
         }
       `}
       </style>
+      <div style={styles.flxImgC}>
+        <img id='banner-practice' src={require('./../../assets/images/banners/banner_practice.jpg')}/>
+      </div>
     </div>
   );
 }

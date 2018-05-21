@@ -4,9 +4,9 @@ import PlaygroundView1 from './PlaygroundView1';
 
 const Playground = () => {
   return(
-    <div>
-    <Header/>
-    <PlaygroundView1/>
+    <div id='playground'>
+      <Header/>
+      <PlaygroundView1/>
     </div>
   );
 }

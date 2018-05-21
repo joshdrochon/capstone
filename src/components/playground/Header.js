@@ -1,16 +1,23 @@
 import React from 'react';
-import bannerPlayground from './banner_playground.jpg';
 
 const styles = {
-  header: {
-    width: '100vw',
-    height: '700px',
+  flexParent: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    height: 'max-content',
+    overflow: 'hidden',
+    position: 'relative'
+  },
+  flxImgC: {
+    width: '100%',
+    height: 'max-content',
+    maxHeight: '82vh',
     textAlign: 'center',
-    position: 'fixed',
-    top: '80px',
-    backgroundImage: `url(${bannerPlayground})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat'
+    overflow: 'hidden',
+    backgroundColor: 'red'
   },
   tagline: {
     position: 'absolute',
@@ -27,21 +34,18 @@ const styles = {
 
 const Header = () => {
   return(
-    <div id='header' style={styles.header}>
+    <div style={styles.flexParent}>
       <style>{`
-        @media(min-width: 700px){
-          #header{
-            background-size: cover !important;
+          #banner-img{
+            width: 100%;
+            display: block;
           }
-        }
-        @media(max-width: 700px){
-          #tagline-lg{
-            display: none;
-          }
-        }
       `}
       </style>
-      <p id='tagline-lg' style={styles.tagline}>X</p>
+      <div style={styles.flxImgC}>
+        <img id='banner-img' src={require(`./banner_playground.jpg`)} />
+      </div>
+      <p style={styles.tagline}>X MARKS THE SPOT</p>
     </div>
   );
 }

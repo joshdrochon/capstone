@@ -1,22 +1,94 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Moment from 'moment';
+import { v4 } from 'uuid';
 
-const NewBlogPostForm = () => {
+
+
+const styles = {
+  form: {
+    width: '90%',
+    height: 'max-content',
+    margin: 'auto',
+    backgroundColor: 'whitesmoke',
+    marginTop: '40px',
+    marginBottom: '75px',
+    padding: '10px'
+  }
+}
+
+const NewBlogPostForm = props => {
+  let author = null;
   let title = null;
   let body = null;
   let image = null;
 
-  function handleNewBlogPostFormSubmission(e) {
+  function handleFormSubmission(e) {
     e.preventDefault();
-    props.onNewPostCreation({title: title.value, body: body.value, image: image.value});
 
+    let splitify = str => {
+      let strArr = str.split(' ');
+      let prevArr = [];
+      let splitArr = [];
+      for(let i=0;i<50;i++){
+        prevArr.push(strArr.shift());
+      }
+      splitArr.push(prevArr, strArr);
+
+      return splitArr;
+    }
+
+    let globalArr = splitify(body.value);
+    let preview = globalArr[0].join(' ');
+    let story = globalArr[1].join(' ');
+
+    props.onNewPostCreation({author: author.value, title: title.value, preview: preview, story: story, image: image.value,
+    id: v4(), publishDate: new Moment()});
+
+    author.value = '';
     title.value = '';
     body.value = '';
     image.value = '';
   }
+
   return(
     <div>
-      <form onSubmit={handleNewBlogPostFormSubmission}>
+      <style>{`
+        #publish{
+            height: 24px;
+            padding: 5px;
+            border: 0px solid transparent;
+            background-color: darkgray;
+          }
+          #bp-form *{
+            margin:10px;
+          }
+          #bp-form input{
+            display: inline-block;
+            font-size: 24px;
+            width: 40%;
+
+          }
+          #bp-form textarea{
+            width: 100%;
+            height: 500px;
+            display:block;
+            margin: auto;
+            font-size: 20px;
+          }
+          #bp-form textarea:focus, input:focus{
+            outline: none;
+          }
+      `}
+      </style>
+      <form id='bp-form' style={styles.form} onSubmit={handleFormSubmission}>
+        <label>Author</label>
+        <input
+          type='text'
+          id='author'
+          placeholder='Natali Coronel'
+          ref={(input) => {author = input;}}/>
+        <label>Title</label>
         <input
           type='text'
           id='title'
@@ -25,13 +97,13 @@ const NewBlogPostForm = () => {
         <textarea
           type='text'
           id='body'
-          placeholder='Post here'
+          placeholder='Write post here'
           ref={(input) => {body = input;}}/>
         <input
           id='image'
-          placeholder='Copy and paste image url here'
+          placeholder='Image url here'
           ref={(input) => {image = input;}}/>
-        <button type='submit'>Publish!</button>
+        <button id='publish' type='submit'>Publish!</button>
       </form>
     </div>
   );
