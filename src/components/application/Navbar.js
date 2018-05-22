@@ -4,23 +4,11 @@ import $ from 'jquery';
 import compass from './../../assets/images/utility/compass.png';
 import menuIcon from './../../assets/images/utility/menu-icon.svg';
 
-// const fontResize = () => {
-//   let perc = parseInt($(window).width())/60;
-//   $('#navbar').css('font-size',perc);
-// }
-//
-// $(() => {
-//     fontResize();
-// });
-// $(window).resize(() => {
-//   fontResize();
-// });
-
 $(()=> {
-  $('#menu').click(() => {
+  $('#menu').click(()=> {
     $('#options').slideToggle();
   });
-  $('#options').click(() => {
+  $('#options').click(()=> {
     $('#options').hide();
   });
 });

@@ -35,7 +35,7 @@ const AboutView2 = () => {
   return(
     <div id='flex-parent' style={styles.flexParent}>
       <style>{`
-        #envelope h3{
+        #envelope h4{
           font-weight: lighter;
           letter-spacing: 2px;
         }
@@ -54,15 +54,15 @@ const AboutView2 = () => {
       </style>
       <article style={styles.flexChild}>
         <span id='envelope'>
-          <h3>{content.about.p1}</h3><br/>
-          <h3>{content.about.p2}</h3><br/>
-          <h3>{content.about.p3}</h3><br/>
+          <h4>{content.about.p1}</h4><br/>
+          <h4>{content.about.p2}</h4><br/>
+          <h4>{content.about.p3}</h4><br/>
         </span>
       </article>
       <div style={styles.flexChild}>
         <img src={zen}/>
-        <h2>"The more you are motivated by love, the more fearless and free your action will be."</h2><br/>
-        <h1><em> ― Dalai Lama</em></h1>
+        <h3>"The more you are motivated by love, the more fearless and free your action will be."</h3><br/>
+        <h3><em> ― Dalai Lama</em></h3>
       </div>
       <hr style={styles.hr}/>
     </div>

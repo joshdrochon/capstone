@@ -34,6 +34,11 @@ const PracticeView1 = () => {
             transform: translate(0px, -13px);
           }
         }
+        @media(max-width: 400px){
+          #practice-cont img{
+            width: 75%;
+          }
+        }
       `}
       </style>
       <div style={styles.flexChild}>

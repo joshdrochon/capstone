@@ -20,18 +20,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      masterBlogPostList: [
-        {
-          author: 'Into the Forest',
-          title: 'Natali Coronel',
-          preview: 'This is the story of a girl who traveled into the forest',
-          story: 'and lived there for six months, all the while writing the next great American novel. She went through a lot of heartache missing what it meant to live in civilization, however the rewards were great',
-          image: './forest.jpg',
-          id: '47',
-          publishDate: new Moment()
-        }
-      ],
-      selectedBlogPost: null
+      masterBlogPostList: [],
+      selectedStory: null
     };
     this.handleAddingNewBlogPost = this.handleAddingNewBlogPost.bind(this);
     this.handleSelectedBlogPost = this.handleSelectedBlogPost.bind(this);
@@ -47,8 +37,8 @@ class App extends Component {
   }
 
   handleSelectedBlogPost(post){
-    this.setState({selectedPost: post});
-    console.log('You clicked on ' + this.state.selectedBlogPost.title);
+    this.setState({selectedStory: post.story});
+    console.log('The selected story is now ' + this.state.selectedStory);
   }
 
   componentDidMount(){
@@ -74,6 +64,7 @@ class App extends Component {
      this.setState({masterBlogPostList: newMasterBlogPostList})
   }
   render(){
+    console.log(this.state);
     return (
       <div className='wrapper'>
         <style>{`
@@ -108,7 +99,8 @@ class App extends Component {
             path='/blog'
             render={()=><Blog
             blogPostList={this.state.masterBlogPostList}
-            onBlogPostSelection={this.state.handleSelectedBlogPost}/>}
+            onBlogPostSelection={this.handleSelectedBlogPost}
+            selectedStory={this.state.selectedStory}/>}
           />
           <Route path='/playground' component={Playground}/>
           <Route path='/photography' component={PhotoAlbum}/>

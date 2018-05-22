@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const Login = (props) => {
+const Login = props => {
   let password = null;
+
   return (
-    <div>
+    <Fragment>
       <style>{`
           #password{
             margin-right: 10px;
@@ -30,7 +31,7 @@ const Login = (props) => {
         <button
           id='login' onClick={props.onHandleLoginConfirmation} type='button'>Submit</button>
       </form>
-    </div>
+    </Fragment>
   );
 }
 

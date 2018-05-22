@@ -20,7 +20,8 @@ const BlogList = props => {
         image={post.image}
         updatedPublishDate={post.updatedPublishDate}
         key={post.id}
-        onBlogPostSelection={props.onBlogPostSelection}/>
+        onBlogPostSelection={props.onBlogPostSelection}
+        selectedStory={props.selectedStory}/>
       )}
     </div>
   );
@@ -30,7 +31,8 @@ const BlogList = props => {
 
 BlogList.propTypes = {
   blogPostList: PropTypes.array,
-  onBlogPostSelection: PropTypes.func
+  onBlogPostSelection: PropTypes.func,
+  selectedStory: PropTypes.string
 }
 
 export default BlogList;

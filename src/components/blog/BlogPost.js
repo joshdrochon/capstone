@@ -6,22 +6,20 @@ import $ from 'jquery';
 
 function expand(){
   $(()=> {
-    $('#expand').click(() => {
-      $('#full-story').slideDown();
-      $('#expand').hide();
-      $('#collapse').show();
-      console.log('You slid me down');
+    $('.expand').click(() => {
+      $('.full-story').slideDown();
+      $('.expand').hide();
+      $('.collapse').show();
     });
   });
 }
 
 function collapse(){
   $(()=> {
-    $('#collapse').click(() => {
-      $('#full-story').slideUp();
-      $('#expand').show();
-      $('#collapse').hide();
-      console.log('You slid me up');
+    $('.collapse').click(() => {
+      $('.full-story').slideUp();
+      $('.expand').show();
+      $('.collapse').hide();
     });
   });
 }
@@ -35,7 +33,6 @@ const styles = {
     alignItems: 'center',
     height: 'max-content',
     paddingTop: '70px',
-    overflow: 'hidden',
     position: 'relative'
   },
   flxImgC: {
@@ -72,7 +69,7 @@ const BlogPost = props => {
   return(
     <div id='blog-post' style={styles.flexParent}>
       <style>{`
-          .blog-image{
+          #img-cont img{
             width: 100%;
           }
           #details{
@@ -104,23 +101,23 @@ const BlogPost = props => {
             font-family: times;
             margin: 0px 15px 0px 15px;
           }
-          .clickable{
+          .expand, .collapse{
             margin-top: 10px;
             border: 1px solid dodgerblue;
             border-radius: 18px;
             padding: 8px;
             width: max-content;
           }
-          .clickable:hover{
+          .expand, .collapse:hover{
             cursor: pointer;
           }
-          #full-story{
+          .full-story{
             display: none;
             word-spacing: 1px;
             line-height: 25px;
             max-width: 900px;
           }
-          #collapse{
+          .collapse{
             display: none;
           }
           @media(max-width: 950px){
@@ -131,7 +128,7 @@ const BlogPost = props => {
       `}
       </style>
       <div id='img-cont' style={styles.flxImgC}>
-        <img className='blog-image' src={require(`${props.image}`)} />
+        <img src={require(`${props.image}`)} />
       </div>
       <div style={styles.flxWrapper}>
         <div style={styles.flxDisplay}>
@@ -142,14 +139,15 @@ const BlogPost = props => {
             <p>{props.author}</p>
             <img id='icon' src={natiIcon}/>
           </div>
+
           <article style={styles.flxSumC}>
             <p style={styles.flxSum}>{props.preview}</p>
           </article>
-          <article id='full-story'>
-            <p>{props.story}</p>
+          <article className='full-story'>
+            <p>{props.selectedStory}</p>
           </article>
-          <h3 className='clickable' id='expand' onClick={expand}>Continue Article</h3>
-          <h3 className='clickable' id='collapse' onClick={collapse}>Collapse Article</h3>
+          <h3 className='expand' onClick={expand} onMouseOver={() => {props.onBlogPostSelection({story: props.story});}}>Continue Article</h3>
+          <h3 className='collapse' onClick={collapse}>Collapse Article</h3>
         </div>
       </div>
     </div>
@@ -163,7 +161,8 @@ BlogPost.propTypes = {
   story: PropTypes.string,
   image: PropTypes.string,
   updatedPublishDate: PropTypes.instanceOf(Moment),
-  onBlogPostSelection: PropTypes.func
+  onBlogPostSelection: PropTypes.func,
+  selectedTitle: PropTypes.string
 };
 
 export default BlogPost;
