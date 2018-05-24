@@ -4,25 +4,9 @@ import natiIcon from './../../assets/images/social/nati-icon.png';
 import Moment from 'moment';
 import $ from 'jquery';
 
-function expand(){
-  $(()=> {
-    $('.expand').click(() => {
-      $('.full-story').slideDown();
-      $('.expand').hide();
-      $('.collapse').show();
-    });
-  });
-}
 
-function collapse(){
-  $(()=> {
-    $('.collapse').click(() => {
-      $('.full-story').slideUp();
-      $('.expand').show();
-      $('.collapse').hide();
-    });
-  });
-}
+
+
 
 const styles = {
   flexParent: {
@@ -54,7 +38,7 @@ const styles = {
     marginTop: '10px',
     maxWidth: '900px'
   },
-  flxSum: {
+  flxPrv: {
     wordSpacing: '1px',
     lineHeight: '25px'
   },
@@ -65,93 +49,115 @@ const styles = {
   }
 }
 
-const BlogPost = props => {
-  return(
-    <div id='blog-post' style={styles.flexParent}>
-      <style>{`
-          #img-cont img{
-            width: 100%;
-          }
-          #details{
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: reverse-wrap;
-            flex-direction: row;
-            align-items: center;
-          }
-          #details p{
-            display: inline-block;
-          }
-          #comment-anchor:hover{
-            text-decoration: underline;
-            cursor: pointer;
-          }
-          #icon{
-            z-index: 1;
-            width: 26px;
-            height: 26px;
-            border-radius: 13px;
-            margin-left: 10px;
-          }
-          #blog-post *{
-            font-family: 'book-antique';
-            font-weight: lighter;
-          }
-          .partition{
-            font-family: times;
-            margin: 0px 15px 0px 15px;
-          }
-          .expand, .collapse{
-            margin-top: 10px;
-            border: 1px solid dodgerblue;
-            border-radius: 18px;
-            padding: 8px;
-            width: max-content;
-          }
-          .expand, .collapse:hover{
-            cursor: pointer;
-          }
-          .full-story{
-            display: none;
-            word-spacing: 1px;
-            line-height: 25px;
-            max-width: 900px;
-          }
-          .collapse{
-            display: none;
-          }
-          @media(max-width: 950px){
-            #img-cont{
-              border-radius: 0px !important;
-            }
-          }
-      `}
-      </style>
-      <div id='img-cont' style={styles.flxImgC}>
-        <img src={require(`${props.image}`)} />
-      </div>
-      <div style={styles.flxWrapper}>
-        <div style={styles.flxDisplay}>
-          <h1 style={styles.flxTitle}>{props.title}</h1>
-          <div id='details'>
-            <p id='comment-anchor'>Leave a comment</p><span className='partition'>|</span>
-            <p>{props.updatedPublishDate} ago</p><span className='partition'>|</span>
-            <p>{props.author}</p>
-            <img id='icon' src={natiIcon}/>
-          </div>
+class BlogPost extends React.Component {
+  componentDidMount(){
+    $(()=> {
+      $('.clickable').click(() => {
+        console.log('clickeded');
+        $('.full-story').slideToggle('fast');
 
-          <article style={styles.flxSumC}>
-            <p style={styles.flxSum}>{props.preview}</p>
-          </article>
-          <article className='full-story'>
-            <p>{props.selectedStory}</p>
-          </article>
-          <h3 className='expand' onClick={expand} onMouseOver={() => {props.onBlogPostSelection({story: props.story});}}>Continue Article</h3>
-          <h3 className='collapse' onClick={collapse}>Collapse Article</h3>
+        $('#collapse').toggle();
+        $('#expand').toggle();
+      });
+    });
+  }
+
+
+  render(props){
+    let selectedStory = null;
+    if(props.selectedStory!=null){
+      selectedStory = props.selectedStory;
+    }
+    console.log(props);
+    return(
+      <div id='blog-post' style={styles.flexParent}>
+        <style>{`
+            #img-cont img{
+              width: 100%;
+            }
+            #details{
+              margin-top: 10px;
+              display: flex;
+              flex-wrap: reverse-wrap;
+              flex-direction: row;
+              align-items: center;
+            }
+            #details p{
+              display: inline-block;
+            }
+            #comment-anchor:hover{
+              text-decoration: underline;
+              cursor: pointer;
+            }
+            #icon{
+              z-index: 1;
+              width: 26px;
+              height: 26px;
+              border-radius: 13px;
+              margin-left: 10px;
+            }
+            #blog-post *{
+              font-family: 'book-antique';
+              font-weight: lighter;
+            }
+            .partition{
+              font-family: times;
+              margin: 0px 15px 0px 15px;
+            }
+            .clickable{
+              margin-top: 10px;
+              border: 1px solid dodgerblue;
+              border-radius: 18px;
+              padding: 8px;
+              width: max-content;
+            }
+            .clickable:hover{
+              cursor: pointer;
+            }
+            .full-story{
+              display: none;
+              word-spacing: 1px;
+              line-height: 25px;
+              max-width: 900px;
+            }
+            #collapse{
+              display: none;
+            }
+            @media(max-width: 950px){
+              #img-cont{
+                border-radius: 0px !important;
+              }
+            }
+        `}
+        </style>
+        <div id='img-cont' style={styles.flxImgC}>
+          <img src={require(`${props.image}`)} />
+        </div>
+        <div style={styles.flxWrapper}>
+          <div style={styles.flxDisplay}>
+            <h1 style={styles.flxTitle}>{props.title}</h1>
+            <div id='details'>
+              <p id='comment-anchor'>Leave a comment</p><span className='partition'>|</span>
+              <p>{props.updatedPublishDate} ago</p><span className='partition'>|</span>
+              <p>{props.author}</p>
+              <img id='icon' src={natiIcon}/>
+            </div>
+
+            <article style={styles.flxSumC}>
+              <p style={styles.flxPrv}>{props.preview}</p>
+            </article>
+            <article className='full-story'>
+              <p>This is test text</p>
+              <p>{selectedStory}</p>
+            </article>
+            <h3 className='clickable' id='expand' onClick={() => {props.onBlogPostSelection(props.postId);}}>Continue Article</h3>
+            <h3 className='clickable' id='collapse'>Collapse Article</h3>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
 }
 
 BlogPost.propTypes = {
@@ -162,7 +168,9 @@ BlogPost.propTypes = {
   image: PropTypes.string,
   updatedPublishDate: PropTypes.instanceOf(Moment),
   onBlogPostSelection: PropTypes.func,
-  selectedTitle: PropTypes.string
+  selectedPost: PropTypes.string,
+  selectedStory: PropTypes.string,
+  postId: PropTypes.string
 };
 
 export default BlogPost;

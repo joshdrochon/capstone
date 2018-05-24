@@ -19,7 +19,7 @@ const styles = {
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gridTemplateRows: 'repeat(auto-fit, minmax(300px, 1fr))',
     margin: 'auto',
-    marginTop: '70px',
+    marginTop: '30px',
     gridGap: '10px'
   },
   cell: {
@@ -42,7 +42,7 @@ const PhotoAlbum = () => {
           @media(min-width: 600px){
             #grid div:hover{
               cursor: pointer;
-              transform: scale(1.15);
+              transform: scale(1.1);
             }
             #grid div{
               overflow: hidden;

@@ -5,39 +5,35 @@ const Form = () => {
     <form id='form'>
       <style>{`
         #form{
-          width: 100%;
-          height: max-content;
-        }
-        #form*:hover:not(#comment-btn){
-          transform: scale(1.02);
-          box-shadow: 5px 5px 5px;
-          background-color: ghostwhite;
+          padding: 10px;
+          margin: auto;
+          background-color: #d9c5c7;
         }
         #form input, textarea{
           display: block;
-          width: 90%;
+          border: none;
+          width: 95%;
           margin: auto;
-          margin-top: 40px;
+          margin-top: 30px;
           font-size: 28px;
           transition: transform .1s;
           font-family: 'indie flower';
         }
         #form textarea{
           height: 200px;
-          resize: none;
         }
         #comment-btn{
           padding: 30px;
-          margin-top: 50px;
+          margin-top: 25px;
+          margin-bottom: 20px;
           box-shadow: 5px 5px 10px;
         }
-        textarea:hover{
+        input:hover, textarea:hover{
           transform: scale(1.02);
           box-shadow: 5px 5px 5px;
           background-color: ghostwhite;
         }
         #comment-btn:active{
-          outline: none;
           background-color: ghostwhite;
           transform: scale(.96);
           box-shadow: 0px 0px 0px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { scrollable } from './../../helpers';
 
 const styles = {
   flexParent: {
@@ -53,7 +54,7 @@ const Header = () => {
       <div style={styles.flxImgC}>
         <img id='banner-img' src={require('./../../assets/images/contact/reach-out.jpg')}/>
       </div>
-      <p id='tagline'>CONTACT US</p>
+      <p id='tagline' onClick={scrollable}>CONTACT US</p>
     </div>
   );
 }

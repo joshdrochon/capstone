@@ -6,7 +6,7 @@ import menuIcon from './../../assets/images/utility/menu-icon.svg';
 
 $(()=> {
   $('#menu').click(()=> {
-    $('#options').slideToggle();
+    $('#options').slideToggle('fast');
   });
   $('#options').click(()=> {
     $('#options').hide();

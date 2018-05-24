@@ -8,16 +8,16 @@ const Blog = props => {
       <BlogList
         blogPostList={props.blogPostList}
         onBlogPostSelection={props.onBlogPostSelection}
-        selectedStory={props.selectedStory}
+        selectedPost={props.selectedPost}
       />
     </div>
   );
 }
 
 Blog.propTypes = {
-  blogPostList: PropTypes.array,
+  blogPostList: PropTypes.object,
   onBlogPostSelection: PropTypes.func,
-  selectedStory: PropTypes.string
+  selectedPost: PropTypes.string
 };
 
 export default Blog;

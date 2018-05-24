@@ -8,7 +8,6 @@ const styles = {
     flexWrap: 'wrap-reverse',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    height: 'max-content',
     paddingTop: '70px',
     paddingBottom: '70px',
     position: 'relative'
@@ -17,10 +16,8 @@ const styles = {
     width: '500px',
     height: 'max-content',
     textAlign: 'center',
-    margin: '20px',
-    padding: '10px',
-    boxSizing: 'border-box',
-    overflow: 'hidden'
+    margin: '10px',
+    padding: '10px'
   },
   hr: {
     width: '80%',
@@ -35,7 +32,6 @@ const ContactView1 = () => {
     <div style={styles.flexParent}>
       <style>{`
         #contact-view{
-          height: auto;
           width: 100%;
           vertical-align: middle;
         }

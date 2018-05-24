@@ -11,6 +11,7 @@ import Blog from './blog/Blog';
 import NewBlogPostControl from './admin/NewBlogPostControl';
 import PhotoAlbum from './practice/album/PhotoAlbum';
 import Moment from 'moment';
+import { v4 } from 'uuid';
 
 import Playground from './playground/Playground';
 
@@ -20,51 +21,44 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      masterBlogPostList: [],
-      selectedStory: null
+      masterBlogPostList: {},
+      selectedPost: null
     };
     this.handleAddingNewBlogPost = this.handleAddingNewBlogPost.bind(this);
     this.handleSelectedBlogPost = this.handleSelectedBlogPost.bind(this);
   }
 
   handleAddingNewBlogPost(newPost){
-    let newMasterBlogPostList = this.state.masterBlogPostList.slice();
-    newPost.updatedPublishDate = (newPost.publishDate).fromNow(true)
-    newMasterBlogPostList.push(newPost);
-    this.setState({
-      masterBlogPostList: newMasterBlogPostList
+    let newPostId = v4();
+    let newMasterBlogPostList = Object.assign({}, this.state.masterBlogPostList, {
+      [newPostId]: newPost
     });
+    //same as newMasterBlogPostList.newPost.id, bracket notation or dot notation pulls value
+    newMasterBlogPostList[newPostId].updatedPublishDate = newMasterBlogPostList[newPostId].publishDate.fromNow(true);
+    this.setState({masterBlogPostList: newMasterBlogPostList});
   }
-
-  handleSelectedBlogPost(post){
-    this.setState({selectedStory: post.story});
-    console.log('The selected story is now ' + this.state.selectedStory);
+  handleSelectedBlogPost(postId){
+    this.setState({selectedPost: postId});
   }
-
   componentDidMount(){
     this.updateTimer()
   }
-
   componentWillUnmount(){
     clearInterval(this.updateTimer);
   }
-
   updateTimer(){
     setInterval(()=>
       this.updateElapsedTime(),
     60000);
   }
-
   updateElapsedTime(){
-     console.log('Checking for blog post updates every minute');
-     let newMasterBlogPostList = this.state.masterBlogPostList.slice();
-     newMasterBlogPostList.forEach((post) =>
-       post.updatedPublishDate = (post.publishDate).fromNow(true)
-     );
-     this.setState({masterBlogPostList: newMasterBlogPostList})
+     let newMasterBlogPostList = Object.assign({}, this.state.masterBlogPostList);
+     Object.keys(newMasterBlogPostList).forEach(postId => {
+       newMasterBlogPostList[postId].updatedPublishDate = (newMasterBlogPostList[postId].publishDate).fromNow(true);
+     });
+     this.setState({masterBlogPostList: newMasterBlogPostList});
   }
   render(){
-    console.log(this.state);
     return (
       <div className='wrapper'>
         <style>{`
@@ -83,6 +77,12 @@ class App extends Component {
           button:hover{
             cursor: pointer;
           }
+          textarea{
+            resize: none;
+          }
+          textarea:focus, input:focus, button:active{
+            outline: none;
+          }
         `}
         </style>
         <Navbar/>
@@ -100,7 +100,7 @@ class App extends Component {
             render={()=><Blog
             blogPostList={this.state.masterBlogPostList}
             onBlogPostSelection={this.handleSelectedBlogPost}
-            selectedStory={this.state.selectedStory}/>}
+            selectedPost={this.state.selectedPost}/>}
           />
           <Route path='/playground' component={Playground}/>
           <Route path='/photography' component={PhotoAlbum}/>

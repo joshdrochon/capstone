@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'moment';
-import { v4 } from 'uuid';
-
-
 
 const styles = {
   form: {
@@ -30,11 +27,10 @@ const NewBlogPostForm = props => {
       let strArr = str.split(' ');
       let prevArr = [];
       let splitArr = [];
-      for(let i=0;i<50;i++){
+      for(let i=0;i<25;i++){
         prevArr.push(strArr.shift());
       }
       splitArr.push(prevArr, strArr);
-
       return splitArr;
     }
 
@@ -42,8 +38,7 @@ const NewBlogPostForm = props => {
     let preview = globalArr[0].join(' ');
     let story = globalArr[1].join(' ');
 
-    props.onNewPostCreation({author: author.value, title: title.value, preview: preview, story: story, image: image.value,
-    id: v4(), publishDate: new Moment()});
+    props.onNewPostCreation({author: author.value, title: title.value, preview: preview, story: story, image: image.value, publishDate: new Moment()});
 
     author.value = '';
     title.value = '';
@@ -72,12 +67,9 @@ const NewBlogPostForm = props => {
           #bp-form textarea{
             width: 100%;
             height: 500px;
-            display:block;
+            display: block;
             margin: auto;
             font-size: 20px;
-          }
-          #bp-form textarea:focus, input:focus{
-            outline: none;
           }
       `}
       </style>
