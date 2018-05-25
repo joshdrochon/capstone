@@ -74,6 +74,33 @@ class App extends Component {
           .wrapper{
             padding-top: 70px;
           }
+          .flex-parent{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            height: max-content;
+            padding-top: 70px;
+            padding-bottom: 70px;
+            overflow: hidden;
+            position: relative;
+          }
+          .flex-child{
+            width: 500px;
+            height: max-content;
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+          }
+          .bottom-line{
+            width: 80%;
+            margin: 0px;
+            position: absolute;
+            bottom: 0;
+          }
           button:hover{
             cursor: pointer;
           }
@@ -82,6 +109,12 @@ class App extends Component {
           }
           textarea:focus, input:focus, button:active{
             outline: none;
+          }
+          @media(max-width: 700px){
+            .flex-parent{
+              padding-top: 25px;
+              padding-bottom: 25px;
+            }
           }
         `}
         </style>

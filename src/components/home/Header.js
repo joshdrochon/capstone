@@ -4,11 +4,6 @@ import { Link } from 'react-router-dom';
 const styles = {
   flexParent: {
     display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    height: 'max-content',
     overflow: 'hidden',
     position: 'relative'
   },

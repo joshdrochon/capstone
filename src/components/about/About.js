@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import Header from './header/Header';
 import AboutView1 from './AboutView1';
 import AboutView2 from './AboutView2';
-import Header from './Header';
 
 class About extends Component {
   componentDidMount(){
