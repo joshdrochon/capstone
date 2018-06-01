@@ -13,7 +13,6 @@ import PhotoAlbum from './practice/album/PhotoAlbum';
 
 import { v4 } from 'uuid';
 import base from '../base';
-import Playground from './playground/Playground';
 
 ReallySmoothScroll.shim();
 
@@ -137,7 +136,7 @@ class App extends Component {
             transition: text-shadow 0.5s ease-in-out;
             text-decoration: none;
           }
-          .tagline:hover{
+          .active:hover{
             text-shadow: 0px 0px 10px;
             cursor: pointer;
           }
@@ -171,7 +170,6 @@ class App extends Component {
               selectedPost={this.state.selectedPost}/>}
             />
             <Route path='/photography' component={PhotoAlbum}/>
-            <Route path='/playground' component={Playground}/>
           </Switch>
         <Footer/>
       </div>

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import PracticeView1 from './PracticeView1';
+import PracticeView2 from './PracticeView2';
 
 class Practice extends Component{
   constructor(props){
@@ -27,6 +28,7 @@ class Practice extends Component{
           opacity={this.state.opacity}
         />
         <PracticeView1/>
+        <PracticeView2/>
       </Fragment>
     );
   }

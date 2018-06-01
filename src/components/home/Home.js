@@ -24,7 +24,8 @@ class Home extends Component {
     return(
       <Fragment>
         <Header
-          fadeIn={this.fadeIn.bind(this)} opacity={this.state.opacity}
+          fadeIn={this.fadeIn.bind(this)}
+          opacity={this.state.opacity}
         />
         <HomeView1/>
       </Fragment>

@@ -16,16 +16,26 @@ const Header = props => (
         text-align: center;
         overflow: hidden;
       }
-      #welcome{
+      .compress{
+        animation: compress 1s ease-in forwards;
         font-style: italic;
         opacity: 0.7;
+      }
+      @keyframes compress {
+        from{
+          opacity: 0.3;
+          letter-spacing: 100px;
+        }
+        to{
+          letter-spacing: 5px;
+        }
       }
     `}
     </style>
     <div id='flex-img-c-home'>
       <img onLoad={props.fadeIn} className='banner' style={{opacity: props.opacity}} src={require('./../../assets/images/banners/banner_home.jpg')}/>
     </div>
-    <p><Link id='welcome' className='tagline' to='/practice'>Your Journey Awaits</Link></p>
+    <p><Link className='tagline active compress' to='/practice'>Your Journey Awaits</Link></p>
   </div>
 );
 

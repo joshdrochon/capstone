@@ -1,13 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Carousel from './Carousel';
 
 const styles = {
   flexParent: {
     display: 'flex',
     alignItems: 'center',
     overflow: 'hidden',
-    position: 'relative'
+    position: 'relative',
   },
   flxImgC: {
     width: '100%',
@@ -17,16 +15,12 @@ const styles = {
   }
 }
 
-const Header = props => (
+const PracticeView2 = () => (
   <div style={styles.flexParent}>
     <div style={styles.flxImgC}>
-      <Carousel
-        fadeIn={props.fadeIn}
-        opacity={props.opacity}
-      />
+      <img className='banner' src={require('./../../assets/images/practice/practiceview2_fullspan.jpg')}/>
     </div>
-    <p className='tagline passive'>ABOUT US</p>
   </div>
 );
 
-export default Header;
+export default PracticeView2;

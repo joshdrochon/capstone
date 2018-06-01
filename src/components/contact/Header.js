@@ -22,7 +22,7 @@ const Header = props => (
     <div style={styles.flxImgC}>
       <img onLoad={props.fadeIn} className='banner' style={{opacity: props.opacity}} src={require('./../../assets/images/contact/reach-out.jpg')}/>
     </div>
-    <p className='tagline' onClick={scrollable}>CONTACT US</p>
+    <p className='tagline active' onClick={scrollable}>CONTACT US</p>
   </div>
 );
 
