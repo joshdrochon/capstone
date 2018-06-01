@@ -26,33 +26,31 @@ const styles = {
   }
 }
 
-const Footer = () => {
-  return(
-    <div id='footer' style={styles.footer}>
-      <style>{`
-          @media(max-width: 500px){
-            #cr{
-              margin-left: 2px !important;
-              font-size: 12px !important;
-            }
-            #icons img{
-              margin-right: 2px !important;
-              width: 24px !important;
-              height: 24px !important;
-            }
-            #footer{
-              height: max-content !important;
-            }
+const Footer = () => (
+  <div id='footer' style={styles.footer}>
+    <style>{`
+        @media(max-width: 500px){
+          #cr{
+            margin-left: 2px !important;
+            font-size: 12px !important;
           }
-      `}
-      </style>
-      <span id='cr' style={styles.copyright}>YOGA WITH NATALI &#x24B8; 2018</span>
-      <span id='icons' style={styles.social}>
-        <a target='_blank' href={fbLink}><img style={styles.icon} src={fb}/></a>
-        <a target='_blank' href='https://instagram.com'><img style={styles.icon} src={insta}/></a>
-      </span>
-    </div>
-  );
-}
+          #icons img{
+            margin-right: 2px !important;
+            width: 24px !important;
+            height: 24px !important;
+          }
+          #footer{
+            height: max-content !important;
+          }
+        }
+    `}
+    </style>
+    <span id='cr' style={styles.copyright}>YOGA WITH NATALI &#x24B8; 2018</span>
+    <span id='icons' style={styles.social}>
+      <a target='_blank' href={fbLink}><img style={styles.icon} src={fb}/></a>
+      <a target='_blank' href='https://instagram.com'><img style={styles.icon} src={insta}/></a>
+    </span>
+  </div>
+);
 
 export default Footer;

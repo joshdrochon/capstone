@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'moment';
+import { formatDate } from './../../helpers.js';
+import TextEditor from './TextEditor';
 
 const styles = {
   form: {
@@ -27,7 +28,7 @@ const NewBlogPostForm = props => {
       let strArr = str.split(' ');
       let prevArr = [];
       let splitArr = [];
-      for(let i=0;i<25;i++){
+      for(let i=0;i<50;i++){
         prevArr.push(strArr.shift());
       }
       splitArr.push(prevArr, strArr);
@@ -38,7 +39,7 @@ const NewBlogPostForm = props => {
     let preview = globalArr[0].join(' ');
     let story = globalArr[1].join(' ');
 
-    props.onNewPostCreation({author: author.value, title: title.value, preview: preview, story: story, image: image.value, publishDate: new Moment()});
+    props.onNewPostCreation({author: author.value, title: title.value, preview: preview, story: story, image: image.value, publishDate: formatDate()});
 
     author.value = '';
     title.value = '';
@@ -49,53 +50,76 @@ const NewBlogPostForm = props => {
   return(
     <div>
       <style>{`
-        #publish{
-            height: 24px;
-            padding: 5px;
-            border: 0px solid transparent;
-            background-color: darkgray;
-          }
           #bp-form *{
-            margin:10px;
+            box-sizing: border-box;
           }
           #bp-form input{
+            height: 50px;
+            margin-bottom: 10px;
+            border: 1px solid darkgray;
             display: inline-block;
             font-size: 24px;
-            width: 40%;
-
+            width: 49%;
           }
-          #bp-form textarea{
+          #body{
             width: 100%;
-            height: 500px;
             display: block;
-            margin: auto;
             font-size: 20px;
+            margin-bottom: 10px;
+          }
+          #publish-btn{
+            border-radius: 5px;
+            display: block;
+            padding: 15px;
+            font-size: 20px;
+            color: white;
+            background-color: darkgray;
+          }
+          #title, #publish-btn{
+            float: right;
           }
       `}
       </style>
       <form id='bp-form' style={styles.form} onSubmit={handleFormSubmission}>
-        <label>Author</label>
         <input
           type='text'
           id='author'
-          placeholder='Natali Coronel'
-          ref={(input) => {author = input;}}/>
-        <label>Title</label>
+          placeholder='Author'
+          maxLength='20'
+          ref={(input) => {author = input;}}
+          required
+        />
         <input
           type='text'
           id='title'
-          placeholder='Title here'
-          ref={(input) => {title = input;}}/>
+          placeholder='Title'
+          maxLength='36'
+          ref={(input) => {title = input;}}
+          required
+        />
+        {/*}<span id='textarea'>
+          <TextEditor
+            id='body'
+            onChange={props.handleChange}
+          />
+        </span>*/}
         <textarea
           type='text'
           id='body'
           placeholder='Write post here'
-          ref={(input) => {body = input;}}/>
+          ref={(input) => {body = input;}}
+          maxLength='3000'
+          minLength='100'
+          required
+        />
         <input
+          type='text'
           id='image'
-          placeholder='Image url here'
-          ref={(input) => {image = input;}}/>
-        <button id='publish' type='submit'>Publish!</button>
+          placeholder='Image url'
+          ref={(input) => {image = input;}}
+          required
+        />
+        <button id='publish-btn' type='submit'>Publish!</button>
       </form>
     </div>
   );
@@ -105,4 +129,4 @@ NewBlogPostForm.propTypes = {
   onNewPostCreation: PropTypes.func
 };
 
-export default NewBlogPostForm ;
+export default NewBlogPostForm;

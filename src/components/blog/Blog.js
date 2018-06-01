@@ -1,17 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import BlogList from './BlogList';
+import BlogPostList from './BlogPostList';
 
-const Blog = props => {
-  return(
-    <div>
-      <BlogList
-        blogPostList={props.blogPostList}
-        onBlogPostSelection={props.onBlogPostSelection}
-        selectedPost={props.selectedPost}
-      />
-    </div>
-  );
+class Blog extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      opacity: 0
+    }
+  }
+
+  fadeIn(){
+    this.setState({
+      opacity: 1
+    });
+  }
+
+  componentDidMount(){
+    window.scrollTo(0, 0)
+  }
+  render(){
+    return(
+      <div>
+        <BlogPostList
+          fadeIn={this.fadeIn.bind(this)}
+          opacity={this.state.opacity}
+          blogPostList={this.props.blogPostList}
+          onBlogPostSelection={this.props.onBlogPostSelection}
+          selectedPost={this.props.selectedPost}
+        />
+      </div>
+    );
+  }
 }
 
 Blog.propTypes = {

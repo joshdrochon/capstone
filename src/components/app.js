@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import ReallySmoothScroll from 'really-smooth-scroll';
-import Home from './home/Home';
-import About from './about/About';
 import Footer from './application/Footer';
 import Navbar from './application/Navbar';
+import Home from './home/Home';
+import About from './about/About';
 import Practice from './practice/Practice';
-import ContactPage from './contact/Contact';
+import Contact from './contact/Contact';
 import Blog from './blog/Blog';
 import NewBlogPostControl from './admin/NewBlogPostControl';
 import PhotoAlbum from './practice/album/PhotoAlbum';
-import Moment from 'moment';
-import { v4 } from 'uuid';
 
+import { v4 } from 'uuid';
+import base from '../base';
 import Playground from './playground/Playground';
 
 ReallySmoothScroll.shim();
@@ -33,35 +33,31 @@ class App extends Component {
     let newMasterBlogPostList = Object.assign({}, this.state.masterBlogPostList, {
       [newPostId]: newPost
     });
-    //same as newMasterBlogPostList.newPost.id, bracket notation or dot notation pulls value
-    newMasterBlogPostList[newPostId].updatedPublishDate = newMasterBlogPostList[newPostId].publishDate.fromNow(true);
     this.setState({masterBlogPostList: newMasterBlogPostList});
   }
   handleSelectedBlogPost(postId){
     this.setState({selectedPost: postId});
+
+    console.log(this.state.masterBlogPostList[postId].title)
   }
   componentDidMount(){
-    this.updateTimer()
+    window.scrollTo(0, 0);
+
+    //sync to firebase
+    this.ref = base.syncState('/blog', {
+      context: this,
+      state: 'masterBlogPostList'
+    });
   }
-  componentWillUnmount(){
-    clearInterval(this.updateTimer);
-  }
-  updateTimer(){
-    setInterval(()=>
-      this.updateElapsedTime(),
-    60000);
-  }
-  updateElapsedTime(){
-     let newMasterBlogPostList = Object.assign({}, this.state.masterBlogPostList);
-     Object.keys(newMasterBlogPostList).forEach(postId => {
-       newMasterBlogPostList[postId].updatedPublishDate = (newMasterBlogPostList[postId].publishDate).fromNow(true);
-     });
-     this.setState({masterBlogPostList: newMasterBlogPostList});
-  }
+
   render(){
+    console.log(this.state);
     return (
       <div className='wrapper'>
         <style>{`
+
+          {/* glabal styles */}
+
           *{
             margin: 0px;
             padding: 0px;
@@ -101,6 +97,9 @@ class App extends Component {
             position: absolute;
             bottom: 0;
           }
+          .clickable:hover{
+            cursor: pointer;
+          }
           button:hover{
             cursor: pointer;
           }
@@ -116,28 +115,64 @@ class App extends Component {
               padding-bottom: 25px;
             }
           }
+
+          {/* Header styles */}
+
+          .banner{
+            width: 100%;
+            display: block;
+            transition: all 1s ease-out;
+          }
+          .tagline{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: max-content;
+            color: white;
+            letter-spacing: 5px;
+            font-weight: lighter;
+            font-family: garamond-premier-pro-light-display;
+            font-size: calc(30px + 2.5vw);
+            transition: text-shadow 0.5s ease-in-out;
+            text-decoration: none;
+          }
+          .tagline:hover{
+            text-shadow: 0px 0px 10px;
+            cursor: pointer;
+          }
+          @media(max-width: 700px){
+            .tagline{
+              font-size: 36px;
+            }
+          }
+          @media(max-width: 500px){
+            .tagline{
+              font-size: 24px;
+            }
+          }
         `}
         </style>
         <Navbar/>
-        <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route path='/about' component={About}/>
-          <Route
-            path='/admin'
-            render={()=><NewBlogPostControl onNewPostCreation={this.handleAddingNewBlogPost} />}
-          />
-          <Route path='/practice' component={Practice}/>
-          <Route path='/contact' component={ContactPage}/>
-          <Route
-            path='/blog'
-            render={()=><Blog
-            blogPostList={this.state.masterBlogPostList}
-            onBlogPostSelection={this.handleSelectedBlogPost}
-            selectedPost={this.state.selectedPost}/>}
-          />
-          <Route path='/playground' component={Playground}/>
-          <Route path='/photography' component={PhotoAlbum}/>
-        </Switch>
+          <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route path='/about' component={About}/>
+            <Route
+              path='/admin'
+              render={()=><NewBlogPostControl onNewPostCreation={this.handleAddingNewBlogPost} />}
+            />
+            <Route path='/practice' component={Practice}/>
+            <Route path='/contact' component={Contact}/>
+            <Route
+              path='/blog'
+              render={()=><Blog
+              blogPostList={this.state.masterBlogPostList}
+              onBlogPostSelection={this.handleSelectedBlogPost}
+              selectedPost={this.state.selectedPost}/>}
+            />
+            <Route path='/photography' component={PhotoAlbum}/>
+            <Route path='/playground' component={Playground}/>
+          </Switch>
         <Footer/>
       </div>
     );

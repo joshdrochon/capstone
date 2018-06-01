@@ -15,21 +15,12 @@ const styles = {
   }
 }
 
-const Header = () => {
-  return(
-    <div style={styles.flexParent}>
-      <style>{`
-        #banner-practice{
-          width: 100%;
-          display: block;
-        }
-      `}
-      </style>
-      <div style={styles.flxImgC}>
-        <img id='banner-practice' src={require('./../../assets/images/banners/banner_practice.jpg')}/>
-      </div>
+const Header = props => (
+  <div style={styles.flexParent}>
+    <div style={styles.flxImgC}>
+      <img onLoad={props.fadeIn} style={{opacity: props.opacity}} className='banner' src={require('./../../assets/images/banners/banner_practice.jpg')}/>
     </div>
-  );
-}
+  </div>
+);
 
 export default Header;

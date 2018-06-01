@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'garamond-premier-pro-light-display';
+  src: local('garamond-premier-pro-light-display'), url(./fonts/Garamond-Premier-Pro-Light-Display.otf) format('otf');
+}
+
+
+@font-face {
+  font-family: 'garamond-premier-pro-light-italic-display';
+  src: local('garamond-premier-pro-light-italic-display'), url(./fonts/Garamond-Premier-Pro-Light-Italic-Display.otf) format('otf');
+}

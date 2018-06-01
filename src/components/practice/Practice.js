@@ -2,13 +2,34 @@ import React, { Component, Fragment } from 'react';
 import Header from './Header';
 import PracticeView1 from './PracticeView1';
 
-const PracticePage = () => {
-  return(
-    <Fragment>
-      <Header/>
-      <PracticeView1/>
-    </Fragment>
-  );
+class Practice extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      opacity: 0
+    };
+  }
+
+  fadeIn(){
+    this.setState({
+      opacity: 1
+    });
+  }
+
+  componentDidMount(){
+    window.scrollTo(0, 0);
+  }
+  render(){
+    return(
+      <Fragment>
+        <Header
+          fadeIn={this.fadeIn.bind(this)}
+          opacity={this.state.opacity}
+        />
+        <PracticeView1/>
+      </Fragment>
+    );
+  }
 }
 
-export default PracticePage;
+export default Practice;
