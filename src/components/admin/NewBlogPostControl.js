@@ -4,13 +4,11 @@ import NewBlogPostForm from './NewBlogPostForm';
 import PropTypes from 'prop-types';
 
 class NewBlogPostControl extends Component {
-
   constructor(props){
     super(props);
     this.state = {
       formVisibleOnPage: false
     };
-    this.handleLoginConfirmation = this.handleLoginConfirmation.bind(this);
   }
 
   handleLoginConfirmation(){
@@ -22,7 +20,7 @@ class NewBlogPostControl extends Component {
     if(this.state.formVisibleOnPage){
       currentlyVisibleContent = <NewBlogPostForm onNewPostCreation={this.props.onNewPostCreation}/>;
     } else {
-      currentlyVisibleContent = <Login onHandleLoginConfirmation={this.handleLoginConfirmation}/>;
+      currentlyVisibleContent = <Login onHandleLoginConfirmation={this.handleLoginConfirmation.bind(this)}/>;
     }
     return(
       <Fragment>

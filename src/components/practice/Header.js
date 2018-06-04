@@ -44,7 +44,7 @@ const Header = props => (
     <div style={styles.flxImgC}>
       <img onLoad={props.fadeIn} style={{opacity: props.opacity}} className='banner' src={require('./../../assets/images/banners/banner_practice.jpg')}/>
     </div>
-    <p className='tagline passive'><span className='sd this'>this. </span><span className='sd is'>is. </span><span className='sd bal'>balance</span></p>
+    <p className='tagline'><span className='sd this'>this. </span><span className='sd is'>is. </span><span className='sd bal'>balance</span></p>
   </div>
 );
 

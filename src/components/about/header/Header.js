@@ -25,7 +25,7 @@ const Header = props => (
         opacity={props.opacity}
       />
     </div>
-    <p className='tagline passive'>ABOUT US</p>
+    <p className='tagline'>ABOUT US</p>
   </div>
 );
 
